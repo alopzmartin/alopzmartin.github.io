@@ -5,6 +5,7 @@ layout: default
 Welcome can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
+[Advice for recommendation letters requests](./cartas_recomendacao.html).
 
 There should be whitespace between paragraphs.
 
