@@ -30,7 +30,7 @@ Para facilitar o processo, inclui as seguintes informações no teu primeiro con
 ## Recursos Úteis
 Uma boa carta de recomendação vai além dos dados objetivos presentes no currículo académico ou no CV (que é uma fonte parcialmente subjetiva) e foca-se em destacar qualidades, capacidades e experiências que se alinhem com o teu objetivo, sob o prisma da minha experiência e percepção.
 
-Para mais informações, recomendo a leitura das **FAQ** sobre cartas de recomendação no site de **Megumi Harada**, cujas orientações são aplicáveis se decidires pedir-me uma carta de recomendação:  
-[https://www.math.mcmaster.ca/~haradam/letters.html](https://www.math.mcmaster.ca/~haradam/letters.html)
+Para mais informações, recomendo a leitura das **FAQ** sobre cartas de recomendação no [site de **Megumi Harada**](https://www.math.mcmaster.ca/~haradam/letters.html), cujas orientações são aplicáveis se decidires pedir-me uma carta de recomendação.
 
+[back](./)
 
