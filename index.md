@@ -3,9 +3,11 @@ layout: default
 ---
 # 👋 Welcome
 
-I'm Alberto, a mathematician and economist working at the intersection of abstract theory and real-world applications. I currently serve as an **Assistant Professor of Mathematics** at [ISEG – Lisbon School of Economics & Management](https://www.iseg.ulisboa.pt), part of the University of Lisbon. My work spans both **pure mathematics**—with a focus on **algebraic geometry**—and **applied economic theory**, particularly in **matching markets**.
+I'm a mathematician and economist working at the intersection of abstract theory and real-world applications. I currently serve as **Deputy Director of the Innovation Lab** at [Imprensa Nacional - Casa da Moeda](https://www.incm.pt), the Portuguese Mint and Official Printing Office. I am also an **Assistant Professor of Mathematics** at [ISEG – Lisbon School of Economics & Management](https://www.iseg.ulisboa.pt), part of the University of Lisbon. My academic background is rooted in **pure mathematics**, with a focus on **algebraic geometry**, and I explore its applications within **economics**—particularly in **microeconomics ** and **matching markets**.
 
 Alongside my academic career, I’ve held key innovation roles in both the public and financial sectors, building bridges between mathematical thinking and policy-making, digital transformation, and market regulation.
+
+
 
 Welcome can be **bold**, _italic_, or ~~strikethrough~~.
 
