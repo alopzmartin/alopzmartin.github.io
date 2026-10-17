@@ -4,7 +4,7 @@ title: Docência
 permalink: /teaching/
 ---
 
-# ISCTE
+# ISCTE (2026/27)
 
 ## 1.º Semestre | Licenciatura em Ciência de Dados
 
