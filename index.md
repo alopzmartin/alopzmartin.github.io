@@ -1,16 +1,20 @@
 
+
 ---
 layout: default
 ---
 
 # 👋 Bem-vindo
 
-Sou matemático e economista, com interesses que vão da investigação teórica às suas aplicações práticas. Sou **Professor Auxiliar Convidado de Matemática** no [ISEG – Lisbon School of Economics & Management](https://www.iseg.ulisboa.pt), da Universidade de Lisboa. A minha formação académica tem origem na **matemática pura**, em particular na **geometria algébrica**, tendo posteriormente alargado os meus interesses à sua aplicação à **economia**, sobretudo nas áreas da **microeconomia** e dos **mercados de matching**.
+Sou matemático e economista e exerço funções como **Professor Auxiliar Convidado de Matemática** no [ISEG – Instituto Superior de Economia e Gestão](https://www.iseg.ulisboa.pt), da Universidade de Lisboa.
 
-Paralelamente à atividade académica, tenho desenvolvido a minha carreira profissional nas áreas da inovação, tanto no setor público como no setor financeiro, procurando estabelecer ligações entre o pensamento matemático, a definição de políticas, a transformação digital e a regulação dos mercados. Atualmente, sou **Diretor-Adjunto do Laboratório de Inovação** da [Imprensa Nacional-Casa da Moeda](https://www.incm.pt).
+A minha formação inicial é em **matemática pura**, mais concretamente em **geometria algébrica**. Posteriormente, interessei-me também pela **economia**, em particular pela **microeconomia** e pelos **mercados de matching**, procurando aplicar ferramentas e métodos matemáticos ao estudo de problemas económicos.
+
+Para além da atividade académica, tenho desenvolvido a minha carreira profissional na área da inovação, com experiência nos setores público e financeiro, em matérias relacionadas com a transformação digital, as políticas públicas e a regulação dos mercados. Atualmente, sou **Diretor-Adjunto do Laboratório de Inovação** da [Imprensa Nacional-Casa da Moeda](https://www.incm.pt).
 
 
 
+<!--
 Welcome can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
@@ -125,7 +129,7 @@ end
 </dl>
 
 ```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.-->
 ```
 
 ```
