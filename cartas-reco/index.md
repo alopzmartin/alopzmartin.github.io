@@ -66,6 +66,12 @@ Para evitar várias trocas de emails, tenta reunir toda a informação relevante
   - Se ainda não estiverem concluídos, podes enviar versões preliminares, desde que estejam suficientemente desenvolvidas para me permitir perceber o conteúdo e os objetivos da candidatura.
 - [ ] **Nomes dos restantes docentes ou investigadores** a quem pediste cartas de recomendação, caso existam.
 
+
+<div style="border-left: 4px solid #267CB9; background-color: #f4f8fc; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
+  <strong>Corolário:</strong> Termina a tua parte da candidatura o mais cedo possível.
+  Não deixes os documentos de que preciso para preparar a carta para a última semana.
+</div>
+
 > [!TIP]
 > **Corolário:** termina a tua parte da candidatura o mais cedo possível. Não deixes os documentos de que preciso para preparar a carta para a última semana.
 
