@@ -9,7 +9,7 @@ mostrar_produto: true
 mostrar_transformacoes: true
 mostrar_bases: true
 mostrar_valores_proprios: true
-mostrar_pca: false
+mostrar_pca: true
 ---
 
 <link rel="stylesheet" href="{{ '/teaching/visao-computador/assets/css/visao.css' | relative_url }}">
