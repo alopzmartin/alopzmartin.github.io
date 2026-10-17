@@ -8,7 +8,7 @@ mostrar_transposta: true
 mostrar_produto: true
 mostrar_transformacoes: false
 mostrar_bases: false
-mostrar_valores_proprios: false
+mostrar_valores_proprios: true
 mostrar_pca: false
 ---
 
