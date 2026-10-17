@@ -1,0 +1,56 @@
+/* Isolado da folha de estilos geral e dos SVG do MathJax. */
+.ad-lesson{max-width:840px;margin-inline:auto;color:inherit;font-size:.97rem;line-height:1.65;overflow-wrap:break-word}
+.ad-lesson .ad-back{display:inline-block;font-size:.83rem;margin-bottom:.75rem}
+.ad-lesson .ad-page-title{font-size:clamp(1.55rem,2.7vw,2.02rem)!important;font-weight:650!important;line-height:1.23!important;letter-spacing:-.01em;margin:.6rem 0 .55rem!important}
+.ad-lesson h2{font-size:clamp(1.25rem,2.2vw,1.48rem)!important;line-height:1.3!important;margin:2.4rem 0 .9rem!important;border-top:1px solid #dde5ec;padding-top:.6rem}
+.ad-lesson h3{font-size:1.12rem!important;margin:1.45rem 0 .6rem!important;line-height:1.4!important}
+.ad-lesson p,.ad-lesson li{font-size:inherit;line-height:1.65}
+.ad-lesson .ad-note{border-left:3px solid #376da0;background:#f0f5fa;padding:.83rem .98rem;border-radius:0 7px 7px 0;margin:1rem 0;font-size:.91rem;color:#29455f}
+.ad-lesson .ad-roadmap{border:1px solid #dce4ec;border-radius:10px;overflow:hidden;margin:1.25rem 0 2rem}
+.ad-lesson .ad-stop{display:flex;gap:.75rem;align-items:center;padding:9px 12px;border-bottom:1px solid #e9edf1}
+.ad-lesson .ad-stop:last-child{border:0}
+.ad-lesson .ad-stop>span:nth-child(2){min-width:0;flex:1}
+.ad-lesson .ad-stop small{display:block;font-size:.76rem;line-height:1.4;color:#62778b}
+.ad-lesson .ad-step{background:#e7f0fb;color:#235987;padding:4px 7px;border-radius:5px;font-size:.77rem;font-weight:700}
+.ad-lesson .ad-status{font-size:.74rem;color:#38628d;white-space:nowrap}
+.ad-lesson .ad-locked{opacity:.63}
+.ad-lesson .ad-demo{border:1px solid #d9e3ed;background:#fafcfe;border-radius:10px;padding:1rem;margin:1.25rem 0;color:#263e55;font-size:.91rem}
+.ad-lesson .ad-demo-heading{display:flex;gap:1rem;align-items:center;justify-content:space-between;border-bottom:1px solid #e1e8ee;padding-bottom:.65rem;margin-bottom:.75rem;line-height:1.35}
+.ad-lesson .ad-demo-heading strong{font-size:1rem}
+.ad-lesson .ad-demo-heading span{color:#34628f;background:#e8f0f8;padding:2px 8px;border-radius:20px;font-size:.73rem}
+.ad-lesson .ad-small{font-size:.81rem!important;color:#627389;margin:.45rem 0 .7rem}
+.ad-lesson .ad-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem .7rem;margin:.7rem 0}
+.ad-lesson .ad-controls label{font-size:.83rem;font-weight:600}
+.ad-lesson .ad-controls input,.ad-lesson .ad-controls button,.ad-lesson .ad-controls select{font:inherit;font-size:.84rem;max-width:100%;padding:6px 9px;border:1px solid #b7c9da;border-radius:6px;background:white;color:#29455f}
+.ad-lesson .ad-controls button{cursor:pointer}
+.ad-lesson button.ad-primary{background:#285f95!important;color:white!important;border-color:#285f95!important}
+.ad-lesson .ad-controls :focus-visible,.ad-lesson .ad-sliders :focus-visible{outline:2px solid #bb852f;outline-offset:2px}
+.ad-lesson .ad-two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}
+.ad-lesson .ad-two-col>div{min-width:0;overflow-wrap:break-word}
+.ad-lesson .ad-two-col strong{display:block;font-size:.86rem;margin:.2rem 0 .45rem}
+.ad-lesson .ad-table-wrap,.ad-lesson .ad-matrix-scroll{max-width:100%;overflow-x:auto;padding:3px 0}
+.ad-lesson table.ad-table,.ad-lesson table.ad-matrix{border-collapse:collapse;font-size:.8rem!important;line-height:1.45;margin:.3rem 0 .7rem!important;width:auto;max-width:100%}
+.ad-lesson table.ad-table td,.ad-lesson table.ad-table th,.ad-lesson table.ad-matrix td,.ad-lesson table.ad-matrix th{padding:5px 8px!important;text-align:center;border:1px solid #d8e3ee;white-space:nowrap}
+.ad-lesson table.ad-table th{background:#eaf1f8;font-weight:650}
+.ad-lesson table.ad-table th:first-child{text-align:left}
+.ad-lesson table.ad-matrix td{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums;background:#f0f4f8}
+.ad-lesson .ad-selected{background:#c4dff2!important;color:#133c5c!important}
+.ad-lesson .ad-result{background:#eef4f9;border-radius:6px;padding:.66rem .8rem;margin:.8rem 0;font-size:.85rem;line-height:1.55;overflow-x:auto}
+.ad-lesson .ad-sliders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.ad-lesson .ad-sliders label{display:flex;flex-direction:column;gap:.27rem;font-size:.84rem;font-weight:600;min-width:0}
+.ad-lesson .ad-sliders input{width:100%;accent-color:#285f95}
+.ad-lesson .ad-sliders output{font-size:.81rem;color:#536c84;font-variant-numeric:tabular-nums}
+.ad-lesson .ad-ranking{display:grid;grid-template-columns:58px 1fr 40px;gap:.45rem;align-items:center;font-size:.79rem;margin:.3rem 0}
+.ad-lesson .ad-rankbar{background:#e0e9f2;height:11px;border-radius:20px;overflow:hidden}
+.ad-lesson .ad-rankbar>div{height:100%;background:#3871a7;border-radius:20px}
+.ad-lesson .ad-details{border:1px solid #dae5ee;border-radius:7px;padding:.55rem .75rem;background:white;margin:.7rem 0}
+.ad-lesson .ad-details summary{cursor:pointer;font-size:.84rem;font-weight:600}
+.ad-lesson .ad-barrow{display:grid;grid-template-columns:90px 1fr 45px;gap:.5rem;align-items:center;margin:.5rem 0;font-size:.78rem}
+.ad-lesson .ad-barback{height:12px;background:#e0e9f2;border-radius:20px;overflow:hidden}
+.ad-lesson .ad-barback>div{height:100%;background:#3871a7}
+.ad-lesson #ad-scatter.ad-chart{display:block;max-width:370px;width:100%;height:auto;border:1px solid #dde7ef;border-radius:6px;background:white}
+.ad-lesson mjx-container[jax="SVG"]{max-width:100%;overflow-x:auto;overflow-y:hidden;font-size:100%}
+.ad-lesson mjx-container[display="true"]{margin:.9rem 0!important}
+/* Não definir regras para .ad-lesson svg: isso redimensionaria o SVG gerado pelo MathJax. */
+@media(max-width:700px){.ad-lesson .ad-two-col{grid-template-columns:1fr}.ad-lesson .ad-sliders{grid-template-columns:1fr}.ad-lesson .ad-demo{padding:.8rem}.ad-lesson .ad-page-title{font-size:1.6rem!important}}
+@media(max-width:430px){.ad-lesson .ad-stop{padding:7px 8px;gap:.4rem}.ad-lesson .ad-status{font-size:.67rem}.ad-lesson .ad-step{font-size:.7rem}.ad-lesson table.ad-table td,.ad-lesson table.ad-table th{padding:4px 6px!important}}
