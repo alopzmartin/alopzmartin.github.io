@@ -6,7 +6,9 @@ permalink: /teaching/
 
 # ISCTE (2026/27)
 
-## 1.º Semestre | Licenciatura em Ciência de Dados (PL)
+## 1.º Semestre
+
+### Licenciatura em Ciência de Dados (PL)
 
 Toda a informação oficial relativa às unidades curriculares, incluindo programas, métodos de avaliação e materiais de apoio, encontra-se disponível nas plataformas **Moodle** e **Fénix**.
 
@@ -14,7 +16,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 
 ---
 
-### Fundamentos de Álgebra Linear
+#### Fundamentos de Álgebra Linear
 
 **Slides das aulas**
 
@@ -22,7 +24,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 
 ---
 
-### Tópicos de Matemática I
+#### Tópicos de Matemática I
 
 **Cálculo Numérico — Métodos de aproximação de raízes**
 
