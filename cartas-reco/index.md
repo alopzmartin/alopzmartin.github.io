@@ -13,8 +13,8 @@ Uma carta genérica raramente ajuda uma candidatura. O objetivo é escrever algo
 
 ## 1. Planeamento e antecedência
 
-<div style="border-left: 4px solid #b9264d; background-color: #e0ced3; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
-  <strong>Envia o teu pedido com, pelo menos, um mês de antecedência relativamente ao primeiro prazo de submissão.</strong>
+<div style="border-left: 4px solid #b9264d; background-color: #f7f2f4; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
+  Envia o teu pedido com, pelo menos, <strong>um mês de antecedência</strong> relativamente ao primeiro prazo de submissão.
 </div>
 
 Preciso de tempo para analisar a candidatura, preparar a carta e, eventualmente, pedir-te informações adicionais.
