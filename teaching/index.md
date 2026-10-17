@@ -23,6 +23,9 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 - [Matrizes e matriz inversa]({{ '/teaching/slides/fal-tp7-tp8.pdf' | relative_url }})
 - [Subespaços $\mathbb{R}^n$]({{ '/teaching/slides/fal-tp9-tp10.pdf' | relative_url }})
 
+**Aplicações** 
+
+- [Da Álgebra Linear à Visão por Computador]({{ '/teaching/visao-computador/' | relative_url }})
 ---
 
 #### Tópicos de Matemática I
