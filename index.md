@@ -1,11 +1,13 @@
+
 ---
 layout: default
 ---
-# 👋 Welcome
 
-I'm a mathematician and economist working at the intersection of abstract theory and real-world applications. I am an **Assistant Professor of Mathematics** at [ISEG – Lisbon School of Economics & Management](https://www.iseg.ulisboa.pt), part of the University of Lisbon. My academic background is rooted in **pure mathematics**, with a focus on **algebraic geometry**, and I explore its applications within **economics** — particularly in **microeconomics** and **matching markets**.
+# 👋 Bem-vindo
 
-Alongside my academic career, I’ve held key innovation roles in both the public and financial sectors, building bridges between mathematical thinking and policy-making, digital transformation, and market regulation. I currently serve as **Deputy Director of the Innovation Lab** at [Imprensa Nacional - Casa da Moeda](https://www.incm.pt), the Portuguese Mint and Official Printing Office.
+Sou matemático e economista, com interesses que vão da investigação teórica às suas aplicações práticas. Sou **Professor Auxiliar Convidado de Matemática** no [ISEG – Lisbon School of Economics & Management](https://www.iseg.ulisboa.pt), da Universidade de Lisboa. A minha formação académica tem origem na **matemática pura**, em particular na **geometria algébrica**, tendo posteriormente alargado os meus interesses à sua aplicação à **economia**, sobretudo nas áreas da **microeconomia** e dos **mercados de matching**.
+
+Paralelamente à atividade académica, tenho desenvolvido a minha carreira profissional nas áreas da inovação, tanto no setor público como no setor financeiro, procurando estabelecer ligações entre o pensamento matemático, a definição de políticas, a transformação digital e a regulação dos mercados. Atualmente, sou **Diretor-Adjunto do Laboratório de Inovação** da [Imprensa Nacional-Casa da Moeda](https://www.incm.pt).
 
 
 
