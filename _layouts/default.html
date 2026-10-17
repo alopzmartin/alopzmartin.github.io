@@ -114,16 +114,20 @@
         
           <div class="name-tooltip" role="tooltip">
             <strong>Sobre o meu nome</strong>
-            <p>
-              Em Espanha, é habitual utilizar dois apelidos, primeiro 
-              o paterno e depois o materno. Em Portugal, a tradição é 
-              diferente: o(s) apelido(s) paterno(s) surge(m) geralmente 
-              no final.
-            </p>
-            <p>
-            Por isso, se quiser abreviar o meu nome, use Alberto López, e não Alberto Martín!
-            </p>
-          </div>
+                <p class="pronunciation">
+                  {{ site.name_pronunciation }}
+                </p>
+            
+                <p>
+                  Em Espanha, é habitual utilizar dois apelidos, primeiro 
+                  o paterno e depois o materno. Em Portugal, a tradição é 
+                  diferente: o(s) apelido(s) paterno(s) surge(m) geralmente 
+                  no final.
+                </p>
+                <p>
+                Por isso, se quiser abreviar o meu nome, use Alberto López, e não Alberto Martín!
+                </p>
+            </div>
         </div>
 
         {% if site.logo %}
