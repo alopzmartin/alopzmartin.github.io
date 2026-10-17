@@ -224,7 +224,14 @@ Se $M$ é uma matriz quadrada, um vetor não nulo $v$ é **vetor próprio** se $
 
 ### Recordar a teoria
 
-Para $M=\begin{pmatrix}2&0 \\0&\frac12\end{pmatrix}$, as direções dos eixos coordenados são direções próprias: $M(1,0)^t=2(1,0)^t$ e $M(0,1)^t=\frac12(0,1)^t$.
+Para 
+$$
+M =
+\begin{pmatrix}
+2 & 0 \\
+0 & \frac12
+\end{pmatrix},
+$$, as direções dos eixos coordenados são direções próprias: $M(1,0)^t=2(1,0)^t$ e $M(0,1)^t=\frac12(0,1)^t$.
 
 Nem todas as matrizes reais possuem vetores próprios **reais**: uma rotação de $90^\circ$ não deixa nenhuma direção real inalterada.
 
