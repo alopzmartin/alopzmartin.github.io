@@ -6,10 +6,10 @@ permalink: /teaching/visao-computador/
 mostrar_matrizes: true
 mostrar_transposta: true
 mostrar_produto: true
-mostrar_transformacoes: false
-mostrar_bases: false
-mostrar_valores_proprios: false
-mostrar_pca: false
+mostrar_transformacoes: true
+mostrar_bases: true
+mostrar_valores_proprios: true
+mostrar_pca: true
 ---
 
 <link rel="stylesheet" href="{{ '/teaching/visao-computador/assets/css/visao.css' | relative_url }}">
