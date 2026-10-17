@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ensino
+title: Docência
 permalink: /teaching/
 ---
 
