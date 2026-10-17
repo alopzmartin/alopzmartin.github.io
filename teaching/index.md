@@ -4,7 +4,7 @@ title: Docência
 permalink: /teaching/
 ---
 
-# ISCTE (2026/27)
+# Iscte (2026/27)
 
 ## 1.º Semestre
 
