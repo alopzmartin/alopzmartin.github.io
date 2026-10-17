@@ -1,0 +1,70 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Teste visual</title><style>body{font-family:Arial,sans-serif;max-width:990px;margin:20px auto;padding:12px;color:#303b4b}</style></head><body><p>&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/visao.css&quot;&gt;</p>
+<p>&lt;div class=&quot;cv-lesson&quot;&gt;</p>
+<p>&lt;a class=&quot;cv-back&quot; href=&quot;#&quot;&gt;← Voltar à página de Docência&lt;/a&gt;</p>
+<p>&lt;h1 class=&quot;cv-page-title&quot;&gt;Da Álgebra Linear à Visão por Computador&lt;/h1&gt;</p>
+<p><em>Uma imagem, várias perguntas matemáticas.</em></p>
+<p>Quando olhamos para uma fotografia, reconhecemos objetos, formas e cores quase sem esforço. Para um computador, porém, uma imagem começa por ser uma coleção de números. Como se passa desses números ao reconhecimento de uma imagem? E o que tem isto a ver com as matrizes que estamos a estudar?</p>
+<p>Nesta página vamos seguir <strong>uma pequena imagem ao longo do semestre</strong>. Começaremos por representá-la com uma matriz. Depois veremos o que acontece quando transpomos essa matriz, como funciona o produto de matrizes na manipulação de dados e, mais adiante, como surgem as transformações lineares, as bases, os valores próprios e uma técnica chamada <em>análise em componentes principais</em> (PCA).</p>
+<p>Não é necessário conhecer já estes últimos assuntos. <strong>As explicações serão disponibilizadas à medida que forem abordados nas aulas</strong>, com lembretes da teoria, exemplos e experiências que podem explorar diretamente nesta página.</p>
+<p>&lt;div class=&quot;cv-note&quot;&gt;Esta página é um complemento às aulas de &lt;strong&gt;Fundamentos de Álgebra Linear&lt;/strong&gt;, não um substituto dos apontamentos. As experiências utilizam imagens pequenas e operações simplificadas para tornar as ideias visíveis.&lt;/div&gt;</p>
+<h2>Percurso</h2>
+<p>&lt;div class=&quot;cv-roadmap&quot; aria-label=&quot;Percurso dos tópicos&quot;&gt;
+  &lt;div class=&quot;cv-stop cv-done&quot;&gt;&lt;span class=&quot;cv-step&quot;&gt;01&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Matrizes&lt;/strong&gt;&lt;small&gt;Uma imagem é uma tabela de números.&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;cv-status&quot;&gt;Disponível&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-stop cv-done&quot;&gt;&lt;span class=&quot;cv-step&quot;&gt;02&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Transposição&lt;/strong&gt;&lt;small&gt;E se trocarmos linhas e colunas?&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;cv-status&quot;&gt;Disponível&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-stop cv-done&quot;&gt;&lt;span class=&quot;cv-step&quot;&gt;03&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Produto de matrizes&lt;/strong&gt;&lt;small&gt;Combinar informação de diferentes píxeis.&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;cv-status&quot;&gt;Disponível&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-stop cv-done&quot;&gt;&lt;span class=&quot;cv-step&quot;&gt;04&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Transformações lineares&lt;/strong&gt;&lt;small&gt;Mover e transformar pontos de uma imagem.&lt;/small&gt;&lt;/span&gt;&lt;span class=&quot;cv-status&quot;&gt;Disponível&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-stop 
+## 5. Bases e dimensão: mudar de coordenadas sem mudar de vetor</p>
+<p>Uma base de $\mathbb R^2$ é um par de vetores linearmente independentes $\mathcal B=(b_1,b_2)$. Qualquer vetor $v$ pode escrever-se de forma única como</p>
+<p>$$v=c_1b_1+c_2b_2,\qquad [v]_{\mathcal B}=\begin{pmatrix}c_1\c_2\end{pmatrix}.$$</p>
+<p>As <strong>coordenadas</strong> dependem da base, mas o vetor geométrico é o mesmo. Por exemplo, se $v=(2,1)^t$ e escolhermos $b_1=(1,1)^t$, $b_2=(-1,1)^t$, então $v=\frac32b_1-\frac12b_2$.</p>
+<p>&lt;div class=&quot;cv-demo&quot; id=&quot;cv-basis-demo&quot;&gt;
+  &lt;div class=&quot;cv-demo-heading&quot;&gt;&lt;strong&gt;Experiência 5 — O mesmo vetor, bases diferentes&lt;/strong&gt;&lt;span&gt;Interativo&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-controls&quot;&gt;&lt;label for=&quot;cv-basis-select&quot;&gt;Escolher base&lt;/label&gt;&lt;select id=&quot;cv-basis-select&quot;&gt;&lt;option value=&quot;canonical&quot;&gt;Canónica&lt;/option&gt;&lt;option value=&quot;diagonal&quot;&gt;Oblíqua: (1,1), (−1,1)&lt;/option&gt;&lt;option value=&quot;scaled&quot;&gt;Escalada: (2,0), (0,½)&lt;/option&gt;&lt;/select&gt;&lt;label for=&quot;cv-vector-x&quot;&gt;x&lt;/label&gt;&lt;input id=&quot;cv-vector-x&quot; type=&quot;range&quot; min=&quot;-3&quot; max=&quot;3&quot; step=&quot;0.5&quot; value=&quot;2&quot;&gt;&lt;output id=&quot;cv-vector-x-value&quot;&gt;2&lt;/output&gt;&lt;label for=&quot;cv-vector-y&quot;&gt;y&lt;/label&gt;&lt;input id=&quot;cv-vector-y&quot; type=&quot;range&quot; min=&quot;-3&quot; max=&quot;3&quot; step=&quot;0.5&quot; value=&quot;1&quot;&gt;&lt;output id=&quot;cv-vector-y-value&quot;&gt;1&lt;/output&gt;&lt;/div&gt;
+  &lt;svg id=&quot;cv-basis-svg&quot; class=&quot;cv-vector-svg&quot; viewBox=&quot;0 0 520 330&quot; role=&quot;img&quot; aria-label=&quot;Bases e vetor no plano&quot;&gt;&lt;/svg&gt;
+  &lt;p id=&quot;cv-basis-equation&quot; class=&quot;cv-filter-description&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+  &lt;p class=&quot;cv-mini-caption&quot;&gt;O vetor azul mantém-se; o que muda são os vetores da base e os coeficientes necessários para o descrever.&lt;/p&gt;
+&lt;/div&gt;</p>
+<h3>E no caso das imagens?</h3>
+<p>Uma imagem de $8\times8$ píxeis em tons de cinzento pode ser identificada com um vetor de $\mathbb R^{64}$. A <strong>base canónica</strong> corresponde a descrever cada píxel separadamente. Noutra base, descrevemos a mesma imagem com coeficientes associados a padrões (combinações de píxeis).</p>
+<p>Ter uma nova base não reduz automaticamente a dimensão: uma base de $\mathbb R^{64}$ continua a ter <strong>64 vetores</strong>. A redução de dimensão aparece quando usamos apenas algumas direções e aceitamos uma aproximação.</p>
+<p><strong>Para pensar:</strong> uma base diferente altera o vetor ou apenas as suas coordenadas? E o que acontece se os dois vetores escolhidos forem paralelos?</p>
+<h2>6. Valores e vetores próprios: as direções especiais de uma transformação</h2>
+<p>Se $M$ é uma matriz quadrada, um vetor não nulo $v$ é <strong>vetor próprio</strong> se $Mv=\lambda v$, para algum escalar $\lambda$ (o valor próprio). Isso significa que a transformação pode esticar, comprimir ou inverter $v$, mas <strong>não o desvia da sua reta de suporte</strong>.</p>
+<p>&lt;div class=&quot;cv-demo&quot; id=&quot;cv-eigen-demo&quot;&gt;
+  &lt;div class=&quot;cv-demo-heading&quot;&gt;&lt;strong&gt;Experiência 6 — Encontrar direções que não rodam&lt;/strong&gt;&lt;span&gt;Interativo&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-controls&quot;&gt;&lt;label for=&quot;cv-eigen-matrix&quot;&gt;Transformação&lt;/label&gt;&lt;select id=&quot;cv-eigen-matrix&quot;&gt;&lt;option value=&quot;stretch&quot;&gt;Esticar / comprimir&lt;/option&gt;&lt;option value=&quot;symmetric&quot;&gt;Misturar coordenadas&lt;/option&gt;&lt;option value=&quot;rotation&quot;&gt;Rotação de 90°&lt;/option&gt;&lt;/select&gt;&lt;label for=&quot;cv-eigen-angle&quot;&gt;Ângulo do vetor&lt;/label&gt;&lt;input id=&quot;cv-eigen-angle&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;359&quot; value=&quot;30&quot;&gt;&lt;output id=&quot;cv-eigen-angle-value&quot;&gt;30°&lt;/output&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-visual-layout&quot;&gt;&lt;svg id=&quot;cv-eigen-svg&quot; class=&quot;cv-vector-svg&quot; viewBox=&quot;0 0 520 330&quot; role=&quot;img&quot; aria-label=&quot;Um vetor e a sua transformação&quot;&gt;&lt;/svg&gt;&lt;div class=&quot;cv-math-panel&quot;&gt;&lt;strong&gt;Matriz e vetores&lt;/strong&gt;&lt;pre id=&quot;cv-eigen-numbers&quot; class=&quot;cv-matrix-code&quot;&gt;&lt;/pre&gt;&lt;p id=&quot;cv-eigen-info&quot; class=&quot;cv-mini-caption&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;cv-mini-caption&quot;&gt;A linha tracejada representa a direção inicial. Procura posições em que a seta transformada fica sobre a mesma reta.&lt;/p&gt;
+&lt;/div&gt;</p>
+<h3>Recordar a teoria</h3>
+<p>Para $M=\begin{pmatrix}2&amp;0\0&amp;1/2\end{pmatrix}$, as direções dos eixos coordenados são direções próprias: $M(1,0)^t=2(1,0)^t$ e $M(0,1)^t=\frac12(0,1)^t$.</p>
+<p>Nem todas as matrizes reais possuem vetores próprios <strong>reais</strong>: uma rotação de $90^\circ$ não deixa nenhuma direção real inalterada.</p>
+<p><strong>Para pensar:</strong> se $\lambda&lt;0$, o vetor próprio fica na mesma direção ou muda de sentido? Em que sentido um vetor próprio pode ser útil para descrever a variação de dados?</p>
+<h2>7. Reconstruir imagens com menos informação: uma introdução à PCA</h2>
+<p>Uma imagem $8\times8$ tem 64 píxeis e pode ser transformada num vetor com 64 entradas. Se tivermos $N$ imagens semelhantes, organizamo-las numa matriz $X$ com $N$ linhas (imagens) e 64 colunas (píxeis).</p>
+<p>A <strong>análise em componentes principais</strong> (PCA, <em>Principal Component Analysis</em>) procura uma base ortonormada adaptada à variação observada. Em vez de guardar as 64 coordenadas originais, podemos guardar apenas os coeficientes nas primeiras $k$ direções. A imagem reconstruída será, em geral, uma aproximação.</p>
+<h3>Primeiro, a ideia matemática</h3>
+<p>Calcula-se a imagem média $\mu$ e centra-se cada vetor $x_i$, obtendo uma matriz de dados centrados $X_c$. A matriz de covariâncias amostral é</p>
+<p>$$C=\frac{1}{N-1}X_c^tX_c.$$</p>
+<p>Os vetores próprios de $C$ associados aos maiores valores próprios definem as principais direções de variação. Se $u_1,\ldots,u_k$ forem os primeiros vetores próprios ortonormados, uma aproximação de uma imagem $x$ é</p>
+<p>$$\hat x_k=\mu+\sum_{j=1}^{k}\underbrace{u_j^t(x-\mu)}_{\text{coeficiente}}u_j.$$</p>
+<p>&lt;div class=&quot;cv-demo&quot; id=&quot;cv-pca-demo&quot;&gt;
+  &lt;div class=&quot;cv-demo-heading&quot;&gt;&lt;strong&gt;Experiência 7 — Reconstruir imagens com componentes principais&lt;/strong&gt;&lt;span&gt;Interativo&lt;/span&gt;&lt;/div&gt;
+  &lt;p class=&quot;cv-mini-caption&quot;&gt;Usamos 16 imagens artificiais de 8 × 8, com diferentes posições e espessuras de uma figura simples. A PCA é calculada no navegador a partir desse conjunto, sem resultados pré-gravados.&lt;/p&gt;
+  &lt;div class=&quot;cv-controls&quot;&gt;&lt;label for=&quot;cv-pca-image&quot;&gt;Imagem de treino&lt;/label&gt;&lt;select id=&quot;cv-pca-image&quot;&gt;&lt;/select&gt;&lt;label for=&quot;cv-pca-k&quot;&gt;Componentes k&lt;/label&gt;&lt;input id=&quot;cv-pca-k&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;15&quot; step=&quot;1&quot; value=&quot;3&quot;&gt;&lt;output id=&quot;cv-pca-k-value&quot;&gt;3&lt;/output&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-demo-columns cv-pca-images&quot;&gt;&lt;div&gt;&lt;div id=&quot;cv-pca-original&quot; class=&quot;cv-pixels&quot;&gt;&lt;/div&gt;&lt;p class=&quot;cv-mini-caption&quot;&gt;Imagem original&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;div id=&quot;cv-pca-reconstructed&quot; class=&quot;cv-pixels&quot;&gt;&lt;/div&gt;&lt;p class=&quot;cv-mini-caption&quot;&gt;Reconstrução com k componentes&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;cv-pca-meter&quot;&gt;&lt;div id=&quot;cv-pca-meter-fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;p id=&quot;cv-pca-stats&quot; class=&quot;cv-filter-description&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+  &lt;details class=&quot;cv-details&quot;&gt;&lt;summary&gt;Ver a média e a primeira componente principal&lt;/summary&gt;&lt;div class=&quot;cv-demo-columns&quot;&gt;&lt;div&gt;&lt;div id=&quot;cv-pca-mean&quot; class=&quot;cv-pixels&quot;&gt;&lt;/div&gt;&lt;p class=&quot;cv-mini-caption&quot;&gt;Imagem média&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;div id=&quot;cv-pca-component&quot; class=&quot;cv-pixels&quot;&gt;&lt;/div&gt;&lt;p class=&quot;cv-mini-caption&quot;&gt;Primeira componente (visualização normalizada)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;p class=&quot;cv-mini-caption&quot;&gt;Os vetores próprios podem conter valores negativos; para os visualizar como imagem, aplicamos uma escala apenas para exibição.&lt;/p&gt;&lt;/details&gt;
+&lt;/div&gt;</p>
+<h3>O que devemos observar?</h3>
+<p>Com $k=0$, vemos apenas a imagem média. À medida que aumentamos $k$, recuperamos detalhes específicos da imagem. Se retivermos todas as direções não nulas, a reconstrução de uma imagem do conjunto de treino é exata, salvo erros de arredondamento.</p>
+<p>A percentagem apresentada na experiência corresponde à <strong>variância total explicada pelo conjunto das primeiras $k$ componentes</strong>, não à percentagem de píxeis reconstruídos corretamente. A qualidade de uma imagem particular é avaliada em separado pelo erro de reconstrução.</p>
+<p>Esta é uma demonstração pedagógica com dados artificiais, não um sistema de reconhecimento de imagens. Contudo, mostra como <strong>matrizes, transposta, produto matricial, bases e vetores próprios</strong> se articulam numa aplicação real de redução de dimensionalidade.</p>
+<p><strong>Para pensar:</strong> guardar 3 coeficientes em vez de 64 permite sempre reconstruir uma imagem exatamente? Que papel desempenha a escolha das direções da nova base?</p>
+<hr />
+<p><em>Esta página será atualizada ao longo do semestre. Se alguma experiência não funcionar no teu navegador, verifica se o JavaScript está ativado.</em></p>
+<p>&lt;/div&gt;</p>
+<p>&lt;script src=&quot;assets/js/visao.js&quot; defer&gt;&lt;/script&gt;</p>
+</body></html>
