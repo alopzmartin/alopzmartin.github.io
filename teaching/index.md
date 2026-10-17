@@ -20,7 +20,8 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 
 **Slides das aulas**
 
-- [TP7–TP8: Matrizes e matriz inversa]({{ '/teaching/slides/fal-tp7-tp8.pdf' | relative_url }})
+- [Matrizes e matriz inversa]({{ '/teaching/slides/fal-tp7-tp8.pdf' | relative_url }})
+- [Subespaços $\mathbb{R}^n$]({{ '/teaching/slides/fal-tp9-tp10.pdf' | relative_url }})
 
 ---
 
