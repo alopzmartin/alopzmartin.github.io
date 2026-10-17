@@ -26,6 +26,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 **Aplicações**
 
 - [Da Álgebra Linear à Visão por Computador]({{ '/teaching/visao-computador/' | relative_url }})
+- [Da Álgebra Linear à Análise de Dados]({{ '/teaching/analise-dados/' | relative_url }})
 
 ---
 
