@@ -13,8 +13,9 @@ Uma carta genérica raramente ajuda uma candidatura. O objetivo é escrever algo
 
 ## 1. Planeamento e antecedência
 
-> [!IMPORTANT]
-> **Envia o teu pedido com, pelo menos, um mês de antecedência relativamente ao primeiro prazo de submissão.**
+<div style="border-left: 4px solid #b9264d; background-color: #e0ced3; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
+  <strong>Envia o teu pedido com, pelo menos, um mês de antecedência relativamente ao primeiro prazo de submissão.</strong>
+</div>
 
 Preciso de tempo para analisar a candidatura, preparar a carta e, eventualmente, pedir-te informações adicionais.
 
@@ -25,7 +26,6 @@ Se estiveres a candidatar-te a várias instituições, não precisas de fazer um
 ---
 
 ## 2. Antes de me pedires uma carta
-
 
 Há duas questões que deves considerar.
 
@@ -51,29 +51,26 @@ Para evitar várias trocas de emails, tenta reunir toda a informação relevante
 
 ### Sobre ti
 
-- [ ] **CV atualizado**, incluindo a tua formação, experiência e atividades relevantes.
-- [ ] **Histórico académico**, caso estejas a frequentar uma licenciatura.
-- [ ] **Disciplina(s) que frequentaste comigo**, indicando:
+[ ] **CV atualizado**, incluindo a tua formação, experiência e atividades relevantes.
+[ ] **Histórico académico**, caso estejas a frequentar uma licenciatura.
+[ ] **Disciplina(s) que frequentaste comigo**, indicando:
   - Nome da disciplina;
   - Ano letivo e semestre;
   - Classificação obtida.
-- [ ] **Outras informações relevantes** que me possam ajudar a recordar o teu percurso e o trabalho que desenvolveste.
+[ ] **Outras informações relevantes** que me possam ajudar a recordar o teu percurso e o trabalho que desenvolveste.
 
 ### Sobre a candidatura
 
-- [ ] **Instituições e programas** a que te estás a candidatar, preferencialmente com ligações para as respetivas páginas oficiais.
-- [ ] **Documentos da candidatura**, incluindo carta de motivação, *personal statement*, proposta de investigação ou outros documentos que pretendas submeter.
+[ ] **Instituições e programas** a que te estás a candidatar, preferencialmente com ligações para as respetivas páginas oficiais.
+[ ] **Documentos da candidatura**, incluindo carta de motivação, *personal statement*, proposta de investigação ou outros documentos que pretendas submeter.
   - Se ainda não estiverem concluídos, podes enviar versões preliminares, desde que estejam suficientemente desenvolvidas para me permitir perceber o conteúdo e os objetivos da candidatura.
-- [ ] **Nomes dos restantes docentes ou investigadores** a quem pediste cartas de recomendação, caso existam.
+[ ] **Nomes dos restantes docentes ou investigadores** a quem pediste cartas de recomendação, caso existam.
 
 
 <div style="border-left: 4px solid #267CB9; background-color: #f4f8fc; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
   <strong>Corolário:</strong> Termina a tua parte da candidatura o mais cedo possível.
   Não deixes os documentos de que preciso para preparar a carta para a última semana.
 </div>
-
-> [!TIP]
-> **Corolário:** termina a tua parte da candidatura o mais cedo possível. Não deixes os documentos de que preciso para preparar a carta para a última semana.
 
 ### Sobre os prazos e a submissão
 
