@@ -51,20 +51,20 @@ Para evitar várias trocas de emails, tenta reunir toda a informação relevante
 
 ### Sobre ti
 
-[ ] **CV atualizado**, incluindo a tua formação, experiência e atividades relevantes.
-[ ] **Histórico académico**, caso estejas a frequentar uma licenciatura.
-[ ] **Disciplina(s) que frequentaste comigo**, indicando:
+- **CV atualizado**, incluindo a tua formação, experiência e atividades relevantes.
+- **Histórico académico**, caso estejas a frequentar uma licenciatura.
+- **Disciplina(s) que frequentaste comigo**, indicando:
   - Nome da disciplina;
   - Ano letivo e semestre;
   - Classificação obtida.
-[ ] **Outras informações relevantes** que me possam ajudar a recordar o teu percurso e o trabalho que desenvolveste.
+- **Outras informações relevantes** que me possam ajudar a recordar o teu percurso e o trabalho que desenvolveste.
 
 ### Sobre a candidatura
 
-[ ] **Instituições e programas** a que te estás a candidatar, preferencialmente com ligações para as respetivas páginas oficiais.
-[ ] **Documentos da candidatura**, incluindo carta de motivação, *personal statement*, proposta de investigação ou outros documentos que pretendas submeter.
+- **Instituições e programas** a que te estás a candidatar, preferencialmente com ligações para as respetivas páginas oficiais.
+-  **Documentos da candidatura**, incluindo carta de motivação, *personal statement*, proposta de investigação ou outros documentos que pretendas submeter.
   - Se ainda não estiverem concluídos, podes enviar versões preliminares, desde que estejam suficientemente desenvolvidas para me permitir perceber o conteúdo e os objetivos da candidatura.
-[ ] **Nomes dos restantes docentes ou investigadores** a quem pediste cartas de recomendação, caso existam.
+- **Nomes dos restantes docentes ou investigadores** a quem pediste cartas de recomendação, caso existam.
 
 
 <div style="border-left: 4px solid #267CB9; background-color: #f4f8fc; padding: 12px 18px; margin: 20px 0; border-radius: 4px;">
@@ -74,9 +74,9 @@ Para evitar várias trocas de emails, tenta reunir toda a informação relevante
 
 ### Sobre os prazos e a submissão
 
-- [ ] **Data-limite de cada candidatura**, identificando claramente o primeiro prazo.
-- [ ] **Procedimento de submissão da carta**: plataforma online, formulário enviado diretamente para o meu email ou outro mecanismo.
-- [ ] **Eventuais requisitos específicos** para a carta, incluindo formato, questões a responder ou critérios de avaliação.
+- **Data-limite de cada candidatura**, identificando claramente o primeiro prazo.
+- **Procedimento de submissão da carta**: plataforma online, formulário enviado diretamente para o meu email ou outro mecanismo.
+- **Eventuais requisitos específicos** para a carta, incluindo formato, questões a responder ou critérios de avaliação.
 
 Se houver várias candidaturas, agradeço que organizes esta informação numa pequena tabela:
 
