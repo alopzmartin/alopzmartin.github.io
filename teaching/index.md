@@ -6,7 +6,7 @@ permalink: /teaching/
 
 # ISCTE (2026/27)
 
-## 1.º Semestre | Licenciatura em Ciência de Dados
+## 1.º Semestre | Licenciatura em Ciência de Dados (PL)
 
 Toda a informação oficial relativa às unidades curriculares, incluindo programas, métodos de avaliação e materiais de apoio, encontra-se disponível nas plataformas **Moodle** e **Fénix**.
 
