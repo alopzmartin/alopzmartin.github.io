@@ -48,6 +48,49 @@
         background-color: #f0f6fb;
         border-left: 3px solid #267CB9;
       }
+
+            /* Name tooltip */
+      
+      .name-container {
+        position: relative;
+      }
+      
+      .name-info {
+        border: 0;
+        background: none;
+        color: #267CB9;
+        font-size: 14px;
+        cursor: pointer;
+        vertical-align: middle;
+        padding: 2px;
+      }
+      
+      .name-tooltip {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        width: min(290px, 80vw);
+        box-sizing: border-box;
+        padding: 15px;
+        background: #fff;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      
+      .name-tooltip p {
+        margin: 8px 0 0;
+      }
+      
+      .name-container:hover .name-tooltip,
+      .name-container:focus-within .name-tooltip {
+        display: block;
+      }
     </style>
   </head>
 
@@ -56,12 +99,34 @@
 
       <!-- LEFT-HAND COLUMN -->
       <header>
-
-        <h1>
-          <a href="{{ '/' | relative_url }}">
-            {{ site.title | default: site.github.repository_name }}
-          </a>
-        </h1>
+        
+        <div class="name-container">
+          <h1>
+            <a href="{{ '/' | relative_url }}">
+              {{ site.title | default: site.github.repository_name }}
+            </a>
+            <button class="name-info"
+                    type="button"
+                    aria-label="Informação sobre o meu nome">
+              ⓘ
+            </button>
+          </h1>
+        
+          <div class="name-tooltip" role="tooltip">
+            <strong>Sobre o meu nome</strong>
+            <p>
+              Em Espanha, é habitual utilizar dois apelidos, primeiro 
+              o paterno e depois o materno. Em Portugal, a tradição é 
+              diferente: o(s) apelido(s) paterno(s) surge(m) geralmente 
+              no final.
+            </p>
+            <p>
+              No meu caso, seguindo a tradição espanhola,
+              <strong>López</strong> é o primeiro apelido
+              e <strong>Martín</strong> o segundo.
+            </p>
+          </div>
+        </div>
 
         {% if site.logo %}
           <img src="{{ site.logo | relative_url }}" alt="Logo" />
