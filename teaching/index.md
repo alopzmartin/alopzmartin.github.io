@@ -15,6 +15,42 @@ Toda a informação oficial relativa às unidades curriculares, incluindo progra
 Nesta página disponibilizo alguns slides e materiais complementares que poderão ser úteis para o acompanhamento das aulas e para o estudo autónomo. Estes recursos não substituem os apontamentos, sebentas e restantes materiais disponibilizados nas plataformas oficiais.
 
 ---
+<div style="border-left: 4px solid #357abd; background: #f3f7fc; padding: 18px 22px; border-radius: 6px; margin: 24px 0; color: #24292f;">
+
+<h3 style="margin-top: 0;">📢 Alterações ao calendário das aulas</h3>
+
+<p><strong>Tópicos de Matemática I e Fundamentos de Álgebra Linear</strong><br>
+Licenciatura em Ciência de Dados · 2026/2027</p>
+
+<p>As aulas originalmente previstas para <strong>2 de outubro</strong> e <strong>20 de novembro</strong> serão substituídas nas seguintes datas:</p>
+
+<table>
+<thead>
+<tr><th>Data</th><th>Fundamentos de Álgebra Linear</th><th>Tópicos de Matemática I</th><th>Substitui</th></tr>
+</thead>
+<tbody>
+<tr><td>2 nov. (seg.)</td><td>19h30–21h00</td><td>21h00–22h30</td><td>20 nov.</td></tr>
+<tr><td>10 dez. (qui.)</td><td>18h00–19h30</td><td>19h30–21h00</td><td>2 out.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Aulas extra</strong></p>
+
+<table>
+<thead>
+<tr><th>Data</th><th>Fundamentos de Álgebra Linear</th><th>Tópicos de Matemática I</th></tr>
+</thead>
+<tbody>
+<tr><td>11 dez. (sex.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>
+<tr><td>16 dez. (qua.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>
+</tbody>
+</table>
+
+<p style="font-size: 0.9em; margin-bottom: 0;">
+<strong>Nota:</strong> A aula de Fundamentos de Álgebra Linear de 2 de novembro aguarda confirmação no Fénix. As salas das aulas adicionais serão comunicadas através da plataforma.
+</p>
+
+</div>
 
 #### Fundamentos de Álgebra Linear
 
