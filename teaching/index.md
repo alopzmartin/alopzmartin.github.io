@@ -26,7 +26,7 @@ Licenciatura em Ciência de Dados · 2026/2027</p>
 
 <table>
 <thead>
-<tr><th>Data</th><th>Fundamentos de Álgebra Linear</th><th>Tópicos de Matemática I</th><th>Substitui</th></tr>
+<tr><th>Data</th><th>FAL</th><th>TMI</th><th>Substitui</th></tr>
 </thead>
 <tbody>
 <tr><td>2 nov. (seg.)</td><td>19h30–21h00</td><td>21h00–22h30</td><td>20 nov.</td></tr>
@@ -38,7 +38,7 @@ Licenciatura em Ciência de Dados · 2026/2027</p>
 
 <table>
 <thead>
-<tr><th>Data</th><th>Fundamentos de Álgebra Linear</th><th>Tópicos de Matemática I</th></tr>
+<tr><th>Data</th><th>FAL</th><th>TMI</th></tr>
 </thead>
 <tbody>
 <tr><td>11 dez. (sex.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>
