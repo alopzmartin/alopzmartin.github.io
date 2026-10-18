@@ -42,9 +42,6 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 
 <h3 style="margin-top: 0;">📢 Alterações ao calendário das aulas</h3>
 
-<p><strong>Tópicos de Matemática I e Fundamentos de Álgebra Linear</strong><br>
-Licenciatura em Ciência de Dados · 2026/2027</p>
-
 <p>As aulas originalmente previstas para <strong>2 de outubro</strong> e <strong>20 de novembro</strong> serão substituídas nas seguintes datas:</p>
 
 <table>
