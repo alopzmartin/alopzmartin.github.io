@@ -1,0 +1,281 @@
+---
+layout: default
+title: Primitivas e regra da cadeia
+permalink: /teaching/primitivas/
+---
+
+<style>
+/* Estilos exclusivos desta página: não alteram as restantes páginas do site. */
+@media screen and (min-width: 961px) {
+  body.primitivas-page .wrapper { width: min(1120px, 100%); }
+  body.primitivas-page section { width: calc(100% - 315px); }
+}
+#primitivas-app {
+  --pr-blue:#2563a5; --pr-teal:#0f766e; --pr-amber:#ad6518;
+  --pr-ink:#262d35; --pr-muted:#64717e; --pr-border:#dfe5ec;
+  --pr-soft:#f6f9fc; --pr-white:#fff;
+  font-family: inherit; color:var(--pr-ink); line-height:1.65;
+}
+#primitivas-app * { box-sizing:border-box; }
+#primitivas-app button,#primitivas-app select {font:inherit;}
+#primitivas-app a {color:#267cb9;}
+#primitivas-app .pr-eyebrow {font-size:11px; text-transform:uppercase; color:var(--pr-muted); letter-spacing:.12em; font-weight:700; margin:0 0 7px;}
+#primitivas-app h1 {font-size:30px; line-height:1.2; color:#222b33; margin:0 0 12px; letter-spacing:-.03em;}
+#primitivas-app h2 {font-size:22px; line-height:1.3; color:#222b33; margin:0 0 10px;}
+#primitivas-app h3 {font-size:16px; color:#27333d; margin:0 0 6px;}
+#primitivas-app p {margin:0 0 12px;}
+#primitivas-app .pr-lead {font-size:15px; line-height:1.7; color:#566371; max-width:710px;}
+#primitivas-app .pr-header {margin:0 0 28px; padding-bottom:19px; border-bottom:1px solid var(--pr-border);}
+#primitivas-app .pr-nav {display:flex; gap:9px; flex-wrap:wrap; margin-top:18px;}
+#primitivas-app .pr-nav a {border:1px solid var(--pr-border); border-radius:99px; padding:5px 12px; background:#fff; text-decoration:none; font-size:12px;}
+#primitivas-app .pr-section {margin:26px 0 32px;}
+#primitivas-app .pr-panel {padding:20px; border:1px solid var(--pr-border); border-radius:12px; background:var(--pr-white); box-shadow:0 2px 8px rgba(39,58,76,.035);}
+#primitivas-app .pr-principle {background:var(--pr-soft); border-left:3px solid #8ca9c7; padding:12px 16px; margin:14px 0 20px; border-radius:4px; overflow-x:auto;}
+#primitivas-app .pr-math-large {font-size:19px; text-align:center; overflow-x:auto; padding:12px 2px; margin:0 0 7px;}
+#primitivas-app .pr-legend {display:flex; gap:8px; flex-wrap:wrap; margin:7px 0 12px;}
+#primitivas-app .pr-chip {font-size:11px; display:inline-flex; align-items:center; gap:6px; font-weight:600; border-radius:99px; padding:4px 10px; border:1px solid transparent;}
+#primitivas-app .pr-chip.blue {color:#1e5288; background:#e8f1fb; border-color:#cce0f5;}
+#primitivas-app .pr-chip.teal {color:#0d6961; background:#e1f5f1; border-color:#c7e8e2;}
+#primitivas-app .pr-chip.amber {color:#91531a; background:#fff1db; border-color:#f5debc;}
+#primitivas-app .pr-steps {display:flex;flex-wrap:wrap;gap:7px;margin:15px 0;}
+#primitivas-app .pr-step-button {border:1px solid var(--pr-border);border-radius:7px;padding:7px 10px;background:#fff;color:#495663;cursor:pointer;font-size:12px;transition:background .15s;}
+#primitivas-app .pr-step-button:hover {background:#f2f6fa;}
+#primitivas-app .pr-step-button[aria-pressed="true"] {background:#eaf3fb;border-color:#8db8de;color:#154e7c;font-weight:700;}
+#primitivas-app .pr-stage {border-radius:8px;border:1px solid #e0e7ef;background:#fafcfe;min-height:130px;padding:12px 14px;}
+#primitivas-app .pr-stage .pr-stage-title {font-size:12px;font-weight:700;color:#3b4e61;letter-spacing:.01em;margin-bottom:4px;}
+#primitivas-app .pr-stage .pr-stage-math {font-size:18px;text-align:center;overflow-x:auto;margin:8px 0;}
+#primitivas-app .pr-stage p {font-size:13px;margin-bottom:0;color:#495663;}
+#primitivas-app details.pr-aside {border-top:1px solid var(--pr-border);padding-top:13px;margin-top:18px;}
+#primitivas-app details summary {cursor:pointer;}
+#primitivas-app .pr-aside summary {font-size:13px;color:#267cb9;font-weight:650;}
+#primitivas-app .pr-aside-body {padding-top:12px;font-size:13px;}
+#primitivas-app .pr-toolbar {display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:17px 0 8px;}
+#primitivas-app .pr-field {display:flex; flex-direction:column;gap:5px;min-width:205px;flex:1;}
+#primitivas-app .pr-field label {font-size:12px;color:#536273;font-weight:650;}
+#primitivas-app .pr-field select {border:1px solid #ced8e2;background:#fff;padding:9px;border-radius:7px;color:#26323d;min-height:40px;cursor:pointer;}
+#primitivas-app .pr-meta {font-size:12px;color:var(--pr-muted);margin:9px 0 14px;}
+#primitivas-app .pr-exercise-list {display:grid;gap:11px;}
+#primitivas-app details.pr-exercise {border:1px solid var(--pr-border);border-radius:9px;background:#fff;overflow:hidden;}
+#primitivas-app details.pr-exercise[open] {border-color:#bccfe1;}
+#primitivas-app .pr-exercise > summary {list-style:none;padding:13px 14px;display:flex;align-items:center;gap:12px;}
+#primitivas-app .pr-exercise > summary::-webkit-details-marker {display:none;}
+#primitivas-app .pr-number {font-weight:750; color:#386c99; border:1px solid #cdddeb;border-radius:6px;background:#f2f7fc;font-size:11px; min-width:37px;padding:5px;text-align:center;flex-shrink:0;}
+#primitivas-app .pr-sumtext {min-width:0;flex:1;font-size:13px;color:#34414f;}
+#primitivas-app .pr-sum-math {display:block;font-size:15px;overflow-x:auto;line-height:2.2;color:#273949;}
+#primitivas-app .pr-summary-sub {font-size:11px;color:#72808e;display:block;}
+#primitivas-app .pr-chevron {font-size:15px;color:#768797;transition:transform .15s;}
+#primitivas-app details[open] > summary .pr-chevron {transform:rotate(180deg);}
+#primitivas-app .pr-exercise-content {border-top:1px solid #e6edf3;padding:14px 16px 16px;}
+#primitivas-app .pr-expression {font-size:17px;overflow-x:auto;line-height:2.3;margin:0 0 10px;}
+#primitivas-app .pr-context {font-size:12px;color:#63707e;margin-bottom:12px;}
+#primitivas-app .pr-disclosure {border:1px solid #e0e7ed;border-radius:7px;margin:9px 0 0;overflow:hidden;background:#fcfdff;}
+#primitivas-app .pr-disclosure > summary {font-size:12px;color:#255a85;padding:9px 12px;font-weight:650;background:#fafcff;}
+#primitivas-app .pr-disclosure[open] > summary {border-bottom:1px solid #e4eaf0;}
+#primitivas-app .pr-disclosure .pr-inside {padding:11px 13px;color:#414b56;font-size:13px;line-height:1.65;overflow-x:auto;}
+#primitivas-app .pr-inside .pr-solution {font-size:16px;line-height:2;overflow-x:auto;}
+#primitivas-app .pr-reverse {display:flex; flex-wrap:wrap;gap:6px;margin:8px 0;}
+#primitivas-app .pr-reverse span {font-size:12px;padding:3px 7px;border-radius:5px;background:#f3f7fa;}
+#primitivas-app .pr-pagination {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;}
+#primitivas-app .pr-page-btn {border:1px solid var(--pr-border);border-radius:7px;background:#fff;padding:8px 12px;color:#31638d;cursor:pointer;}
+#primitivas-app .pr-page-btn:disabled {opacity:.35;cursor:default;}
+#primitivas-app .pr-page-number {font-size:12px;color:#64717e;}
+#primitivas-app .pr-note {font-size:13px;color:#5e6b76;border-left:3px solid #d7e2ed;padding:10px 13px;background:#f8fafc;border-radius:3px;}
+#primitivas-app .pr-small {color:#657482;font-size:12px;}
+#primitivas-app .pr-foot {padding:15px 0;border-top:1px solid var(--pr-border);margin-top:25px;}
+#primitivas-app .pr-empty {padding:24px;border:1px dashed #c9d5e1;border-radius:8px;color:#66788a;font-size:13px;}
+@media(max-width:550px) {
+  #primitivas-app h1{font-size:25px;}
+  #primitivas-app .pr-panel {padding:14px;}
+  #primitivas-app .pr-field {min-width:100%;}
+  #primitivas-app .pr-math-large,#primitivas-app .pr-stage-math {font-size:16px;}
+  #primitivas-app .pr-steps {gap:5px;}
+  #primitivas-app .pr-step-button {padding:7px;font-size:11px;}
+}
+</style>
+
+<div id="primitivas-app">
+  <div class="pr-header">
+    <div class="pr-eyebrow">Tópicos de Matemática I · Recursos complementares</div>
+    <h1>Primitivas: reconhecer a derivada ao contrário</h1>
+    <p class="pr-lead">A ideia é simples: antes de começar a calcular, procure reconhecer a estrutura da função. As cores ajudam a identificar a função interior, a sua derivada e a primitiva que procuramos.</p>
+    <div class="pr-nav" aria-label="Navegação nesta página">
+      <a href="#compreender">Compreender</a>
+      <a href="#exercicios">Exercícios</a>
+      <a href="#verificar">Como verificar</a>
+    </div>
+  </div>
+
+  <div id="compreender" class="pr-section">
+    <h2>1. A regra da cadeia, ao contrário</h2>
+    <p>Ao derivar uma composição, multiplicamos pela derivada da função interior. Para encontrar uma primitiva, procuramos essa mesma estrutura no integrando.</p>
+    <div class="pr-principle">\[ \frac{d}{dx}F(g(x))=F'(g(x))\,g'(x)\quad\Longrightarrow\quad\int F'(g(x))\,g'(x)\,dx=F(g(x))+C \]</div>
+    <div class="pr-panel">
+      <h3>Um exemplo, passo a passo</h3>
+      <div class="pr-math-large">\[\int 2x\cos(x^2)\,dx\]</div>
+      <div class="pr-legend">
+        <span class="pr-chip blue">Azul · função interior</span>
+        <span class="pr-chip teal">Verde · derivada interior</span>
+        <span class="pr-chip amber">Laranja · primitiva</span>
+      </div>
+      <div class="pr-steps" role="group" aria-label="Passos do exemplo">
+        <button type="button" class="pr-step-button" data-stage="0" aria-pressed="true">1 · Interior</button>
+        <button type="button" class="pr-step-button" data-stage="1" aria-pressed="false">2 · Derivada</button>
+        <button type="button" class="pr-step-button" data-stage="2" aria-pressed="false">3 · Primitiva</button>
+        <button type="button" class="pr-step-button" data-stage="3" aria-pressed="false">4 · Verificação</button>
+      </div>
+      <div class="pr-stage" aria-live="polite" id="pr-stage"></div>
+      <details class="pr-aside">
+        <summary>E quando falta um fator constante?</summary>
+        <div class="pr-aside-body">
+          <p>Em \(\int\cos(3x+1)\,dx\), a função interior é \(g(x)=3x+1\) e \(g'(x)=3\). O fator 3 não aparece: compensamos com \(\frac13\).</p>
+          <div class="pr-expression">\[\int\cos(3x+1)\,dx=\frac13\sin(3x+1)+C\]</div>
+          <p>Esta compensação por uma constante é possível porque o fator em falta não depende de \(x\). Não se pode fazer o mesmo com um fator variável qualquer.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div id="exercicios" class="pr-section">
+    <h2>2. Experimente resolver</h2>
+    <p>Os exercícios estão agrupados por técnica. Abra um enunciado, tente resolvê-lo e consulte a <strong>pista</strong> apenas se precisar. A <strong>resolução</strong> fica escondida até decidir vê-la.</p>
+    <div class="pr-toolbar">
+      <div class="pr-field">
+        <label for="pr-group">Tipo de exercício</label>
+        <select id="pr-group">
+          <option value="cadeia">Reconhecer a regra da cadeia</option>
+          <option value="diretas">Primitivas imediatas e simplificação</option>
+          <option value="condicoes">Condições iniciais</option>
+          <option value="segunda">A partir da segunda derivada</option>
+          <option value="derivadas">Rever a regra da cadeia (derivadas)</option>
+          <option value="todas">Todos os exercícios</option>
+        </select>
+      </div>
+      <div class="pr-field">
+        <label for="pr-level">Dificuldade</label>
+        <select id="pr-level">
+          <option value="todas">Todas</option>
+          <option value="Inicial">Inicial</option>
+          <option value="Intermédio">Intermédio</option>
+          <option value="Avançado">Avançado</option>
+        </select>
+      </div>
+    </div>
+    <p class="pr-meta" id="pr-count" aria-live="polite"></p>
+    <div class="pr-exercise-list" id="pr-exercise-list"></div>
+    <div class="pr-pagination">
+      <button type="button" id="pr-prev" class="pr-page-btn">← Anteriores</button>
+      <span id="pr-page" class="pr-page-number" aria-live="polite"></span>
+      <button type="button" id="pr-next" class="pr-page-btn">Seguintes →</button>
+    </div>
+    <p class="pr-small" style="margin-top:14px">Inclui uma seleção dos exercícios que partilhou e outros adaptados para explorar a regra da cadeia ao contrário. A numeração original foi mantida quando aplicável.</p>
+  </div>
+
+  <div id="verificar" class="pr-section">
+    <h2>3. Verifique derivando</h2>
+    <p>Uma primitiva está correta se, ao derivar o resultado, recuperarmos a função de partida. Por exemplo:</p>
+    <div class="pr-principle">\[ \frac{d}{dx}\left[\frac13\sin(3x+1)+C\right]=\frac13\cos(3x+1)\cdot 3=\cos(3x+1). \]</div>
+    <p class="pr-note">O objetivo não é memorizar a forma de cada exercício. É aprender a identificar quando uma função contém a derivada de outra — e distinguir os casos verdadeiramente imediatos dos que exigem uma técnica diferente.</p>
+  </div>
+  <div class="pr-foot"><p class="pr-small">Recurso complementar de estudo. Os materiais oficiais das unidades curriculares continuam disponíveis no Moodle e no Fénix.</p></div>
+</div>
+
+<script>
+(function () {
+  document.body.classList.add('primitivas-page');
+  // If MathJax is already configured in _layouts/default.html, reuse it.
+  if (!window.MathJax && !document.querySelector('script[src*="mathjax" i]')) {
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: {fontCache: 'global'}
+    };
+    const loader=document.createElement('script');
+    loader.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    loader.async=true;
+    document.head.appendChild(loader);
+  }
+  const root=document.getElementById('primitivas-app');
+  const inline=(s)=>'\\('+s+'\\)';
+  const display=(s)=>'\\['+s+'\\]';
+  const htmlEscape=(s)=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const C={blue:'#2563a5',teal:'#0f766e',amber:'#ad6518'};
+  const stages=[
+    {
+      title:'A função interior',
+      math:'g(x)=\\color{'+C.blue+'}{x^2}',
+      text:'O argumento do cosseno é x². Essa é a função que está dentro de outra.'
+    },
+    {
+      title:'A derivada da função interior',
+      math:'\\int \\color{'+C.teal+'}{2x}\\,\\cos(\\color{'+C.blue+'}{x^2})\\,dx',
+      text:'A derivada de x² é 2x. O fator 2x está presente no integrando.'
+    },
+    {
+      title:'Reconhecer a primitiva',
+      math:'\\int 2x\\cos(x^2)\\,dx=\\color{'+C.amber+'}{\\sin(x^2)}+C',
+      text:'Como a primitiva do cosseno é o seno, mantemos a função interior x².'
+    },
+    {
+      title:'Confirmar pela derivada',
+      math:'\\frac{d}{dx}\\big[\\sin(x^2)+C\\big]=\\cos(x^2)\\cdot2x',
+      text:'Recuperámos o integrando inicial. A verificação termina aqui.'
+    }
+  ];
+  const stageBox=root.querySelector('#pr-stage');
+  function typeset(el){
+    if(window.MathJax && typeof window.MathJax.typesetPromise==='function'){
+      window.MathJax.typesetPromise([el]).catch(function(err){console.warn('MathJax:',err);});
+    }
+  }
+  function showStage(n){
+    const st=stages[n];
+    stageBox.innerHTML='<div class="pr-stage-title">'+htmlEscape(st.title)+'</div><div class="pr-stage-math">'+display(st.math)+'</div><p>'+htmlEscape(st.text)+'</p>';
+    root.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.stage)===n)));
+    typeset(stageBox);
+  }
+  root.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>showStage(Number(b.dataset.stage))));
+  showStage(0);
+  const exercises=[{"group":"diretas","ref":"1","level":"Inicial","expr":"\\int (x-3)\\,dx","answer":"\\frac{x^2}{2}-3x+C","hint":"Integre cada parcela separadamente.","steps":"\\int x\\,dx-3\\int 1\\,dx","check":"\\left(\\frac{x^2}{2}-3x\\right)\\!\\!\\prime=x-3","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"5","level":"Inicial","expr":"\\int (x+1)(2x-1)\\,dx","answer":"\\frac{2}{3}x^3+\\frac{x^2}{2}-x+C","hint":"Desenvolva primeiro o produto.","steps":"(x+1)(2x-1)=2x^2+x-1","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"6","level":"Inicial","expr":"\\int x(2-x)^2\\,dx","answer":"\\frac{x^4}{4}-\\frac{4x^3}{3}+2x^2+C","hint":"Desenvolva o quadrado antes de integrar.","steps":"x(2-x)^2=x^3-4x^2+4x","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"7","level":"Intermédio","expr":"\\int \\left(7x^{2/5}+8x^{-4/5}\\right)dx","answer":"5x^{7/5}+40x^{1/5}+C","hint":"Use a regra das potências. Observe que nenhum expoente é −1.","steps":"\\int x^a\\,dx=\\frac{x^{a+1}}{a+1}+C\\quad(a\\neq -1)","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"9","level":"Inicial","expr":"\\int \\sqrt{2}\\,dx","answer":"\\sqrt{2}\\,x+C","hint":"A função é constante. Qual é a primitiva de uma constante?","steps":"","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"10","level":"Inicial","expr":"\\int e^2\\,dx","answer":"e^2x+C","hint":"Aqui, e² é uma constante: não depende de x.","steps":"","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"11","level":"Inicial","expr":"\\int \\left(3\\sqrt{x}-2\\sqrt[3]{x}\\right)dx","answer":"2x^{3/2}-\\frac{3}{2}x^{4/3}+C","hint":"Escreva as raízes como potências.","steps":"\\sqrt{x}=x^{1/2},\\qquad\\sqrt[3]{x}=x^{1/3}","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"13","level":"Intermédio","expr":"\\int \\left(\\frac15-\\frac2x\\right)dx","answer":"\\frac{x}{5}-2\\ln|x|+C","hint":"A potência x⁻¹ é a exceção à regra habitual das potências.","steps":"\\int\\frac1x\\,dx=\\ln|x|+C","check":"\\text{Em cada intervalo com }x\\ne0.","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"14","level":"Intermédio","expr":"\\int\\frac{3t^4-t^3+6t^2}{t^4}\\,dt","answer":"3t-\\ln|t|-\\frac6t+C","hint":"Divida cada termo do numerador por t⁴.","steps":"\\frac{3t^4-t^3+6t^2}{t^4}=3-\\frac1t+\\frac6{t^2}","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"15","level":"Intermédio","expr":"\\int\\frac{1+t+t^2}{\\sqrt t}\\,dt","answer":"2\\sqrt t+\\frac23t^{3/2}+\\frac25t^{5/2}+C","hint":"Transforme cada quociente numa potência de t.","steps":"\\frac{1+t+t^2}{\\sqrt t}=t^{-1/2}+t^{1/2}+t^{3/2}","check":"t>0","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"16","level":"Intermédio","expr":"\\int\\left(\\sec\\theta\\tan\\theta-2e^\\theta\\right)d\\theta","answer":"\\sec\\theta-2e^\\theta+C","hint":"Recorde as derivadas de secante e da exponencial.","steps":"(\\sec\\theta)\\prime=\\sec\\theta\\tan\\theta","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"18","level":"Inicial","expr":"\\int\\left(\\sin t+2\\sinh t\\right)dt","answer":"-\\cos t+2\\cosh t+C","hint":"Trate as funções trigonométricas e hiperbólicas separadamente.","steps":"","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"20","level":"Inicial","expr":"\\int\\left(2\\sqrt x+6\\cos x\\right)dx","answer":"\\frac43x^{3/2}+6\\sin x+C","hint":"Escreva √x como potência e recorde a primitiva de cos x.","steps":"","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"21","level":"Intermédio","expr":"\\int\\frac{x^5-x^3+2x}{x^4}\\,dx","answer":"\\frac{x^2}{2}-\\ln|x|-\\frac1{x^2}+C","hint":"Simplifique o quociente, termo a termo.","steps":"\\frac{x^5-x^3+2x}{x^4}=x-\\frac1x+\\frac2{x^3}","check":"x\\ne0","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"diretas","ref":"22","level":"Intermédio","expr":"\\int\\frac{2+x^2}{1+x^2}\\,dx","answer":"x+\\arctan x+C","hint":"Reescreva o numerador como (1+x²)+1.","steps":"\\frac{2+x^2}{1+x^2}=1+\\frac1{1+x^2}","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"cadeia","ref":"C1","level":"Inicial","expr":"\\int 4\\cos(4x)\\,dx","answer":"\\sin(4x)+C","hint":"A função interior é 4x; a sua derivada é 4. Está presente.","steps":"\\frac{d}{dx}\\sin(4x)=4\\cos(4x)","check":"","inner":"4x","inner_deriv":"4","outer":"\\cos(u)","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C2","level":"Inicial","expr":"\\int \\cos(4x)\\,dx","answer":"\\frac14\\sin(4x)+C","hint":"A derivada da função interior é 4, mas o integrando não tem esse fator.","steps":"\\int\\cos(4x)\\,dx=\\frac14\\int4\\cos(4x)\\,dx","check":"","inner":"4x","inner_deriv":"4","outer":"\\cos(u)","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C3","level":"Intermédio","expr":"\\int\\frac3{2\\sqrt{4+3x}}\\,dx","answer":"\\sqrt{4+3x}+C","hint":"A função interior é 4+3x. Repare no fator 3 no numerador.","steps":"\\frac{d}{dx}\\sqrt{4+3x}=\\frac3{2\\sqrt{4+3x}}","check":"","inner":"4+3x","inner_deriv":"3","outer":"\\frac1{2\\sqrt{u}}","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C4","level":"Intermédio","expr":"\\int -20x(1-x^2)^9\\,dx","answer":"(1-x^2)^{10}+C","hint":"Identifique 1−x² e a sua derivada −2x.","steps":"\\frac{d}{dx}(1-x^2)^{10}=10(1-x^2)^9(-2x)","check":"","inner":"1-x^2","inner_deriv":"-2x","outer":"10u^9","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C5","level":"Intermédio","expr":"\\int x(1-x^2)^9\\,dx","answer":"-\\frac1{20}(1-x^2)^{10}+C","hint":"Falta um fator constante para obter −2x e o fator 10 da potência.","steps":"\\int x(1-x^2)^9dx=-\\frac1{20}\\int[-20x(1-x^2)^9]dx","check":"","inner":"1-x^2","inner_deriv":"-2x","outer":"u^9","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C6","level":"Intermédio","expr":"\\int 5(4x^3+6x)(x^4+3x^2-2)^4\\,dx","answer":"(x^4+3x^2-2)^5+C","hint":"Observe que 4x³+6x é a derivada da expressão elevada à quarta potência.","steps":"\\frac{d}{dx}(x^4+3x^2-2)^5=5(x^4+3x^2-2)^4(4x^3+6x)","check":"","inner":"x^4+3x^2-2","inner_deriv":"4x^3+6x","outer":"5u^4","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C7","level":"Inicial","expr":"\\int e^{3x}\\,dx","answer":"\\frac13e^{3x}+C","hint":"A derivada de 3x é 3. Falta compensar esse fator.","steps":"\\int e^{3x}dx=\\frac13\\int3e^{3x}dx","check":"","inner":"3x","inner_deriv":"3","outer":"e^u","tag":"Exemplo adicional"},{"group":"cadeia","ref":"C8","level":"Intermédio","expr":"\\int 3x^2e^{x^3}\\,dx","answer":"e^{x^3}+C","hint":"A função interior é x³. A sua derivada surge a multiplicar.","steps":"\\frac{d}{dx}e^{x^3}=e^{x^3}\\,3x^2","check":"","inner":"x^3","inner_deriv":"3x^2","outer":"e^u","tag":"Exemplo adicional"},{"group":"cadeia","ref":"C9","level":"Intermédio","expr":"\\int\\frac{2x}{1+x^2}\\,dx","answer":"\\ln(1+x^2)+C","hint":"A derivada de 1+x² é 2x. Use a primitiva de 1/u.","steps":"\\int\\frac{g\\prime(x)}{g(x)}dx=\\ln|g(x)|+C","check":"","inner":"1+x^2","inner_deriv":"2x","outer":"\\frac1u","tag":"Exemplo adicional"},{"group":"cadeia","ref":"C10","level":"Intermédio","expr":"\\int2x\\cos(x^2)\\,dx","answer":"\\sin(x^2)+C","hint":"A derivada de x² aparece exatamente como fator.","steps":"\\frac{d}{dx}\\sin(x^2)=\\cos(x^2)\\,2x","check":"","inner":"x^2","inner_deriv":"2x","outer":"\\cos(u)","tag":"Exemplo adicional"},{"group":"cadeia","ref":"C11","level":"Avançado","expr":"\\int6x\\ln2\\;2^{3x^2}\\,dx","answer":"2^{3x^2}+C","hint":"A derivada de a^{g(x)} inclui ln(a) e g′(x).","steps":"\\frac{d}{dx}2^{3x^2}=2^{3x^2}\\ln2\\,6x","check":"","inner":"3x^2","inner_deriv":"6x","outer":"2^u","tag":"Adaptado da ficha de derivadas"},{"group":"cadeia","ref":"C12","level":"Avançado","expr":"\\int2\\sec^2(2x)\\cos(\\tan(2x))\\,dx","answer":"\\sin(\\tan(2x))+C","hint":"Há duas composições: comece pela mais exterior e prossiga para a interior.","steps":"\\frac{d}{dx}\\sin(\\tan(2x))=\\cos(\\tan(2x))\\,\\sec^2(2x)\\,2","check":"","inner":"\\tan(2x)","inner_deriv":"2\\sec^2(2x)","outer":"\\cos(u)","tag":"Adaptado da ficha de derivadas"},{"group":"condicoes","ref":"31","level":"Inicial","expr":"f\\prime(x)=1+3\\sqrt{x},\\quad f(4)=25","answer":"f(x)=x+2x^{3/2}+5","hint":"Primeiro encontre a primitiva geral; depois imponha f(4)=25.","steps":"f(x)=x+2x^{3/2}+C,\\quad 4+16+C=25","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"32","level":"Inicial","expr":"f\\prime(x)=5x^4-3x^2+4,\\quad f(-1)=2","answer":"f(x)=x^5-x^3+4x+6","hint":"Depois de integrar, substitua x=−1.","steps":"-1+1-4+C=2\\Rightarrow C=6","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"33","level":"Intermédio","expr":"f\\prime(t)=\\frac4{1+t^2},\\quad f(1)=0","answer":"f(t)=4\\arctan(t)-\\pi","hint":"Recorde que a derivada de arctan t é 1/(1+t²).","steps":"4\\arctan(1)+C=\\pi+C=0","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"34","level":"Intermédio","expr":"f\\prime(t)=t+\\frac1{t^3},\\quad t>0,\\quad f(1)=6","answer":"f(t)=\\frac{t^2}{2}-\\frac1{2t^2}+6","hint":"Escreva 1/t³ como t⁻³ e integre.","steps":"f(t)=\\frac{t^2}{2}-\\frac1{2t^2}+C,\\quad f(1)=C","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"35","level":"Avançado","expr":"f\\prime(t)=2\\cos t+\\sec^2 t,\\quad f(\\pi/3)=4","answer":"f(t)=2\\sin t+\\tan t+4-2\\sqrt3","hint":"As primitivas de 2 cos t e sec²t são imediatas.","steps":"2\\sin(\\pi/3)+\\tan(\\pi/3)=2\\sqrt3","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"68","level":"Intermédio","expr":"f\\prime(x)=\\sinh x+2\\cosh x,\\quad f(0)=2","answer":"f(x)=\\cosh x+2\\sinh x+1","hint":"Recorde as derivadas de sinh e cosh.","steps":"f(0)=1+0+C=2\\Rightarrow C=1","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"69","level":"Inicial","expr":"f\\prime(t)=2t-3\\sin t,\\quad f(0)=5","answer":"f(t)=t^2+3\\cos t+2","hint":"A primitiva de −sin t é cos t.","steps":"f(0)=3+C=5\\Rightarrow C=2","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"condicoes","ref":"70","level":"Intermédio","expr":"f\\prime(u)=\\frac{u^2+\\sqrt u}{u},\\quad f(1)=3","answer":"f(u)=\\frac{u^2}{2}+2\\sqrt u+\\frac12","hint":"Simplifique antes de integrar: u+u⁻¹ᐟ².","steps":"f(1)=\\frac12+2+C=3\\Rightarrow C=\\frac12","check":"u>0","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"25","level":"Inicial","expr":"f\\prime\\prime(x)=20x^3-12x^2+6x","answer":"f(x)=x^5-x^4+x^3+C_1x+C_2","hint":"Integre duas vezes. Surgem duas constantes independentes.","steps":"f\\prime(x)=5x^4-4x^3+3x^2+C_1","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"28","level":"Inicial","expr":"f\\prime\\prime(x)=6x+\\sin x","answer":"f(x)=x^3-\\sin x+C_1x+C_2","hint":"Ao integrar sin x duas vezes, preste atenção aos sinais.","steps":"f\\prime(x)=3x^2-\\cos x+C_1","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"39","level":"Intermédio","expr":"f\\prime\\prime(x)=-2+12x-12x^2,\\quad f(0)=4,\\ f\\prime(0)=12","answer":"f(x)=-x^2+2x^3-x^4+12x+4","hint":"Depois de integrar duas vezes, use f′(0) para determinar C₁ e f(0) para C₂.","steps":"f\\prime(x)=-2x+6x^2-4x^3+C_1,\\quad C_1=12,\\ C_2=4","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"41","level":"Intermédio","expr":"f\\prime\\prime(\\theta)=\\sin\\theta+\\cos\\theta,\\quad f(0)=3,\\ f\\prime(0)=4","answer":"f(\\theta)=-\\sin\\theta-\\cos\\theta+5\\theta+4","hint":"Ao integrar sin θ e cos θ, os sinais são diferentes.","steps":"f\\prime(\\theta)=-\\cos\\theta+\\sin\\theta+C_1,\\quad C_1=5,\\ C_2=4","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"42","level":"Intermédio","expr":"f\\prime\\prime(t)=\\frac3{\\sqrt t},\\quad f(4)=20,\\ f\\prime(4)=7","answer":"f(t)=4t^{3/2}-5t+8","hint":"Integre t⁻¹ᐟ² duas vezes e use as duas condições.","steps":"f\\prime(t)=6\\sqrt t+C_1,\\quad C_1=-5,\\ C_2=8","check":"t>0","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"47","level":"Avançado","expr":"f\\prime\\prime(x)=x^{-2},\\quad x>0,\\ f(1)=0,\\ f(2)=0","answer":"f(x)=-\\ln x+(\\ln2)(x-1)","hint":"Na primeira integração surge −x⁻¹; na segunda, −ln x.","steps":"f(x)=-\\ln x+C_1x+C_2,\\quad C_1=\\ln2,\\ C_2=-\\ln2","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"segunda","ref":"72","level":"Avançado","expr":"f\\prime\\prime(x)=2x^3+3x^2-4x+5,\\quad f(0)=2,\\ f(1)=0","answer":"f(x)=\\frac{x^5}{10}+\\frac{x^4}{4}-\\frac{2x^3}{3}+\\frac{5x^2}{2}-\\frac{251x}{60}+2","hint":"Integre duas vezes; f(0)=2 determina C₂ e f(1)=0 determina C₁.","steps":"f(x)=\\frac{x^5}{10}+\\frac{x^4}{4}-\\frac{2x^3}{3}+\\frac{5x^2}{2}+C_1x+C_2","check":"","inner":"","inner_deriv":"","outer":"","tag":"Original"},{"group":"derivadas","ref":"1","level":"Inicial","expr":"\\frac{d}{dx}\\sin(4x)","answer":"4\\cos(4x)","hint":"Identifique g(x)=4x. Multiplique por g′(x).","steps":"(\\sin u)\\prime=\\cos u,\\quad u\\prime=4","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"2","level":"Inicial","expr":"\\frac{d}{dx}\\sqrt{4+3x}","answer":"\\frac3{2\\sqrt{4+3x}}","hint":"A função exterior é √u e a interior é 4+3x.","steps":"(\\sqrt u)\\prime=\\frac1{2\\sqrt u},\\quad u\\prime=3","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"3","level":"Intermédio","expr":"\\frac{d}{dx}(1-x^2)^{10}","answer":"-20x(1-x^2)^9","hint":"A função interior é 1−x². Qual é a sua derivada?","steps":"10(1-x^2)^9\\cdot(-2x)","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"7","level":"Intermédio","expr":"\\frac{d}{dx}(x^4+3x^2-2)^5","answer":"5(x^4+3x^2-2)^4(4x^3+6x)","hint":"Identifique a potência exterior e derive a expressão interior.","steps":"g(x)=x^4+3x^2-2,\\quad g\\prime(x)=4x^3+6x","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"23","level":"Avançado","expr":"\\frac{d}{dx}\\sqrt{1+2e^{3x}}","answer":"\\frac{3e^{3x}}{\\sqrt{1+2e^{3x}}}","hint":"Há uma composição com uma exponencial dentro de uma raiz.","steps":"\\frac{1}{2\\sqrt{1+2e^{3x}}}\\cdot 2e^{3x}\\cdot3","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"31","level":"Avançado","expr":"\\frac{d}{dx}\\sin(\\tan(2x))","answer":"2\\sec^2(2x)\\cos(\\tan(2x))","hint":"São duas composições sucessivas: sin, tan e 2x.","steps":"\\cos(\\tan(2x))\\cdot\\sec^2(2x)\\cdot2","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"40","level":"Avançado","expr":"\\frac{d}{dx}\\sin(\\sin(\\sin x))","answer":"\\cos(\\sin(\\sin x))\\cos(\\sin x)\\cos x","hint":"Aplique a regra da cadeia três vezes, da função mais exterior para a interior.","steps":"","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"},{"group":"derivadas","ref":"44","level":"Intermédio","expr":"\\frac{d}{dx}2^{3x^2}","answer":"6x\\ln2\\;2^{3x^2}","hint":"Recorde a regra para derivar a^{u(x)}.","steps":"\\frac{d}{dx}a^{u(x)}=a^{u(x)}\\ln(a)\\,u\\prime(x)","check":"","inner":"","inner_deriv":"","outer":"","tag":"Ficha de derivadas"}];
+  const groups={diretas:'Primitivas diretas',cadeia:'Regra da cadeia ao contrário',condicoes:'Condições iniciais',segunda:'A partir de f″',derivadas:'Derivadas e composição'};
+  const groupEl=root.querySelector('#pr-group'),levelEl=root.querySelector('#pr-level'),list=root.querySelector('#pr-exercise-list'),count=root.querySelector('#pr-count'),pageLabel=root.querySelector('#pr-page');
+  const prev=root.querySelector('#pr-prev'),next=root.querySelector('#pr-next');
+  let currentPage=0;
+  const perPage=6;
+  function filtered(){return exercises.filter(e=>(groupEl.value==='todas'||e.group===groupEl.value)&&(levelEl.value==='todas'||e.level===levelEl.value));}
+  function card(e){
+    let recognition='';
+    if(e.inner){
+      recognition='<div class="pr-reverse"><span>'+inline('\\color{'+C.blue+'}{g(x)='+e.inner+'}')+'</span><span>'+inline('\\color{'+C.teal+'}{g\\prime(x)='+e.inner_deriv+'}')+'</span><span>'+inline('\\color{'+C.amber+'}{\\text{Padrão: }'+e.outer+'}')+'</span></div>';
+    }
+    const steps=e.steps?'<p><strong>Passo intermédio:</strong></p><div class="pr-expression">'+display(e.steps)+'</div>':'';
+    const check=e.check?'<p><strong>Observação:</strong></p><div class="pr-expression">'+display(e.check)+'</div>':'';
+    return '<details class="pr-exercise">'
+      +'<summary><span class="pr-number">'+htmlEscape(e.ref)+'</span>'
+      +'<span class="pr-sumtext"><span class="pr-sum-math">'+inline(e.expr)+'</span><span class="pr-summary-sub">'+htmlEscape(e.level)+' · '+htmlEscape(groups[e.group])+'</span></span>'
+      +'<span class="pr-chevron" aria-hidden="true">⌄</span></summary>'
+      +'<div class="pr-exercise-content">'
+      +'<details class="pr-disclosure"><summary>Ver pista</summary><div class="pr-inside"><p>'+htmlEscape(e.hint)+'</p>'+recognition+'</div></details>'
+      +'<details class="pr-disclosure"><summary>Ver resolução</summary><div class="pr-inside">'+steps+'<div class="pr-solution">'+display(e.answer)+'</div>'+check+'</div></details>'
+      +'</div></details>';
+  }
+  function render(){
+    const data=filtered();
+    const totalPages=Math.max(1,Math.ceil(data.length/perPage));
+    currentPage=Math.max(0,Math.min(currentPage,totalPages-1));
+    const start=currentPage*perPage;
+    const visible=data.slice(start,start+perPage);
+    count.textContent=data.length+' exercícios · '+(data.length?('a mostrar '+(start+1)+'–'+(start+visible.length)):'nenhum para este filtro');
+    list.innerHTML=visible.length?visible.map(card).join(''):'<div class="pr-empty">Não há exercícios com esta combinação de filtros.</div>';
+    pageLabel.textContent=(currentPage+1)+' / '+totalPages;
+    prev.disabled=currentPage===0;next.disabled=currentPage>=totalPages-1;
+    typeset(list);
+  }
+  groupEl.addEventListener('change',()=>{currentPage=0;render();});
+  levelEl.addEventListener('change',()=>{currentPage=0;render();});
+  prev.addEventListener('click',()=>{if(currentPage>0){currentPage--;render();root.querySelector('#exercicios').scrollIntoView({behavior:'smooth',block:'start'});}});
+  next.addEventListener('click',()=>{if(currentPage<Math.ceil(filtered().length/perPage)-1){currentPage++;render();root.querySelector('#exercicios').scrollIntoView({behavior:'smooth',block:'start'});}});
+  // MathJax occasionally needs a second pass when a hidden <details> is opened.
+  root.addEventListener('toggle',e=>{if(e.target.open && e.target.tagName==='DETAILS'){typeset(e.target);}},true);
+  render();
+  window.addEventListener('load',()=>{typeset(root);});
+})();
+</script>
