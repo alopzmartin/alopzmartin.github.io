@@ -35,7 +35,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 **Cálculo Numérico — Métodos de aproximação de raízes**
 
 - [Método da Bisseção, do Ponto Fixo e de Newton-Raphson]({{ '/teaching/slides/Metodos_Bissecao_Ponto_Fixo_Newton.pdf' | relative_url }})
-- [Primitivas imediatas — Tutorial interativo]({{ '/teaching/primitivas/' | relative_url }})
+- [Primitivas imediatas — Tutorial interativo]({{ '/teaching/primitivas.html' | relative_url }})
 
 ---
 
