@@ -51,7 +51,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 </thead>
 <tbody>
 <tr><td>2 nov. (seg.)</td><td>19h30–21h00</td><td>21h00–22h30</td><td>20 nov.</td></tr>
-<tr><td>10 dez. (qui.)</td><td>18h00–19h30</td><td>19h30–21h00</td><td>2 out.</td></tr>
+<!--<tr><td>10 dez. (qui.)</td><td>18h00–19h30</td><td>19h30–21h00</td><td>2 out.</td></tr>-->
 </tbody>
 </table>
 
@@ -62,7 +62,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 <tr><th>Data</th><th>FAL</th><th>TMI</th></tr>
 </thead>
 <tbody>
-<tr><td>11 dez. (sex.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>
+<!--<tr><td>11 dez. (sex.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>-->
 <tr><td>16 dez. (qua.)</td><td>19h30–21h00</td><td>18h00–19h30</td></tr>
 </tbody>
 </table>
