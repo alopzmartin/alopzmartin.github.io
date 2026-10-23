@@ -1,9 +1,13 @@
-<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{font-family:Arial,sans-serif;background:white;color:#444;font-size:14px;line-height:1.5;padding:30px}.wrapper{width:860px;margin:auto}header{width:270px;float:left}section{width:500px;float:right}@media(max-width:960px){.wrapper{width:100%}header,section{float:none;width:auto}}</style><div class="wrapper"><header><h1>Alberto López Martín</h1><p>Professor Auxiliar Convidado</p></header><section>
+---
+layout: default
+title: Primitivas imediatas
+permalink: /teaching/primitivas/
+---
 <style>
 /* Estilos exclusivos desta página: não alteram as restantes páginas do site. */
 @media screen and (min-width: 961px) {
   body.primitivas-page .wrapper { width: min(1120px, 100%); }
-  body.primitivas-page section { width: calc(100% - 315px); }
+  body.primitivas-page .wrapper > section { width: calc(100% - 315px); }
 }
 #primitivas-app {
   --pr-blue:#2563a5; --pr-teal:#0f766e; --pr-amber:#ad6518;
@@ -217,7 +221,11 @@
     <div class="pr-principle">\[ \frac{d}{dx}\left[\frac13\sin(3x+1)+C\right]=\frac13\cos(3x+1)\cdot 3=\cos(3x+1). \]</div>
     <p class="pr-note">O objetivo não é memorizar a forma de cada exercício. É aprender a identificar quando uma função contém a derivada de outra — e distinguir os casos verdadeiramente imediatos dos que exigem uma técnica diferente.</p>
   </div>
-  <div class="pr-foot"><p class="pr-small">Recurso complementar de estudo. Os materiais oficiais das unidades curriculares continuam disponíveis no Moodle e no Fénix.</p></div>
+  <div class="pr-foot">
+    <p><a href="{{ '/teaching/' | relative_url }}">← Voltar à página de Ensino</a></p>
+    <p><a href="{{ '/teaching/primitivas-por-partes/' | relative_url }}">Primitivação por partes →</a></p>
+    <p class="pr-small">Recurso complementar de estudo. Os materiais oficiais das unidades curriculares continuam disponíveis no Moodle e no Fénix.</p>
+  </div>
 </div>
 
 <script>
@@ -320,4 +328,3 @@
   window.addEventListener('load',()=>{typeset(root);});
 })();
 </script>
-</section></div></html>
