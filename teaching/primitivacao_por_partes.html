@@ -1,0 +1,280 @@
+---
+layout: default
+title: Primitivação por partes
+permalink: /teaching/primitivas-por-partes/
+---
+<style>
+/* Estilos exclusivos desta página: não alteram as restantes páginas do site. */
+@media screen and (min-width: 961px) {
+  body.partes-page .wrapper { width: min(1120px, 100%); }
+  body.partes-page .wrapper > section { width: calc(100% - 315px); }
+}
+#partes-app {
+  --pr-blue:#2563a5; --pr-teal:#0f766e; --pr-amber:#ad6518;
+  --pr-ink:#262d35; --pr-muted:#64717e; --pr-border:#dfe5ec;
+  --pr-soft:#f6f9fc; --pr-white:#fff;
+  font-family: inherit; color:var(--pr-ink); line-height:1.65;
+}
+#partes-app * { box-sizing:border-box; }
+#partes-app button,#partes-app select {font:inherit;}
+#partes-app a {color:#267cb9;}
+#partes-app .pr-eyebrow {font-size:11px; text-transform:uppercase; color:var(--pr-muted); letter-spacing:.12em; font-weight:700; margin:0 0 7px;}
+#partes-app h1 {font-size:30px; line-height:1.2; color:#222b33; margin:0 0 12px; letter-spacing:-.03em;}
+#partes-app h2 {font-size:22px; line-height:1.3; color:#222b33; margin:0 0 10px;}
+#partes-app h3 {font-size:16px; color:#27333d; margin:0 0 6px;}
+#partes-app p {margin:0 0 12px;}
+#partes-app .pr-lead {font-size:15px; line-height:1.7; color:#566371; max-width:710px;}
+#partes-app .pr-header {margin:0 0 28px; padding-bottom:19px; border-bottom:1px solid var(--pr-border);}
+#partes-app .pr-nav {display:flex; gap:9px; flex-wrap:wrap; margin-top:18px;}
+#partes-app .pr-nav a {border:1px solid var(--pr-border); border-radius:99px; padding:5px 12px; background:#fff; text-decoration:none; font-size:12px;}
+#partes-app .pr-section {margin:26px 0 32px;}
+#partes-app .pr-panel {padding:20px; border:1px solid var(--pr-border); border-radius:12px; background:var(--pr-white); box-shadow:0 2px 8px rgba(39,58,76,.035);}
+#partes-app .pr-principle {background:var(--pr-soft); border-left:3px solid #8ca9c7; padding:12px 16px; margin:14px 0 20px; border-radius:4px; overflow-x:auto;}
+#partes-app .pr-math-large {font-size:19px; text-align:center; overflow-x:auto; padding:12px 2px; margin:0 0 7px;}
+#partes-app .pr-subheading {margin-top:24px;margin-bottom:10px;}
+#partes-app .pr-definition {border-left-color:#267CB9;background:#f1f7fc;}
+#partes-app .pr-rule-grid {display:grid;grid-template-columns:1fr;gap:12px;margin:14px 0 16px;}
+#partes-app .pr-rule-card {border:1px solid var(--pr-border);background:#fff;border-radius:10px;padding:15px;min-width:0;overflow-x:auto;}
+#partes-app .pr-rule-name {font-weight:700;color:#394b5b;margin-bottom:8px;font-size:13px;}
+#partes-app .pr-rule-math {font-size:14px;overflow-x:auto;}
+#partes-app .pr-rule-card p {color:#657482;font-size:12px;}
+#partes-app .pr-legend {display:flex; gap:8px; flex-wrap:wrap; margin:7px 0 12px;}
+#partes-app .pr-chip {font-size:11px; display:inline-flex; align-items:center; gap:6px; font-weight:600; border-radius:99px; padding:4px 10px; border:1px solid transparent;}
+#partes-app .pr-chip.blue {color:#1e5288; background:#e8f1fb; border-color:#cce0f5;}
+#partes-app .pr-chip.teal {color:#0d6961; background:#e1f5f1; border-color:#c7e8e2;}
+#partes-app .pr-chip.amber {color:#91531a; background:#fff1db; border-color:#f5debc;}
+#partes-app .pr-steps {display:flex;flex-wrap:wrap;gap:7px;margin:15px 0;}
+#partes-app .pr-step-button {border:1px solid var(--pr-border);border-radius:7px;padding:7px 10px;background:#fff;color:#495663;cursor:pointer;font-size:12px;transition:background .15s;}
+#partes-app .pr-step-button:hover {background:#f2f6fa;}
+#partes-app .pr-step-button[aria-pressed="true"] {background:#eaf3fb;border-color:#8db8de;color:#154e7c;font-weight:700;}
+#partes-app .pr-stage {border-radius:8px;border:1px solid #e0e7ef;background:#fafcfe;min-height:130px;padding:12px 14px;}
+#partes-app .pr-stage .pr-stage-title {font-size:12px;font-weight:700;color:#3b4e61;letter-spacing:.01em;margin-bottom:4px;}
+#partes-app .pr-stage .pr-stage-math {font-size:18px;text-align:center;overflow-x:auto;margin:8px 0;}
+#partes-app .pr-stage p {font-size:13px;margin-bottom:0;color:#495663;}
+#partes-app details.pr-aside {border-top:1px solid var(--pr-border);padding-top:13px;margin-top:18px;}
+#partes-app details summary {cursor:pointer;}
+#partes-app .pr-aside summary {font-size:13px;color:#267cb9;font-weight:650;}
+#partes-app .pr-aside-body {padding-top:12px;font-size:13px;}
+#partes-app .pr-toolbar {display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:17px 0 8px;}
+#partes-app .pr-field {display:flex; flex-direction:column;gap:5px;min-width:205px;flex:1;}
+#partes-app .pr-field label {font-size:12px;color:#536273;font-weight:650;}
+#partes-app .pr-field select {border:1px solid #ced8e2;background:#fff;padding:9px;border-radius:7px;color:#26323d;min-height:40px;cursor:pointer;}
+#partes-app .pr-meta {font-size:12px;color:var(--pr-muted);margin:9px 0 14px;}
+#partes-app .pr-exercise-list {display:grid;gap:11px;}
+#partes-app details.pr-exercise {border:1px solid var(--pr-border);border-radius:9px;background:#fff;overflow:hidden;}
+#partes-app details.pr-exercise[open] {border-color:#bccfe1;}
+#partes-app .pr-exercise > summary {list-style:none;padding:13px 14px;display:flex;align-items:center;gap:12px;}
+#partes-app .pr-exercise > summary::-webkit-details-marker {display:none;}
+#partes-app .pr-number {font-weight:750; color:#386c99; border:1px solid #cdddeb;border-radius:6px;background:#f2f7fc;font-size:11px; min-width:37px;padding:5px;text-align:center;flex-shrink:0;}
+#partes-app .pr-sumtext {min-width:0;flex:1;font-size:13px;color:#34414f;}
+#partes-app .pr-summary-sub {font-size:11px;color:#72808e;display:block;}
+#partes-app .pr-chevron {font-size:15px;color:#768797;transition:transform .15s;}
+#partes-app details[open] > summary .pr-chevron {transform:rotate(180deg);}
+#partes-app .pr-exercise-content {border-top:1px solid #e6edf3;padding:14px 16px 16px;}
+#partes-app .pr-expression {font-size:17px;overflow-x:auto;line-height:2.3;margin:0 0 10px;}
+#partes-app .pr-context {font-size:12px;color:#63707e;margin-bottom:12px;}
+#partes-app .pr-disclosure {border:1px solid #e0e7ed;border-radius:7px;margin:9px 0 0;overflow:hidden;background:#fcfdff;}
+#partes-app .pr-disclosure > summary {font-size:12px;color:#255a85;padding:9px 12px;font-weight:650;background:#fafcff;}
+#partes-app .pr-disclosure[open] > summary {border-bottom:1px solid #e4eaf0;}
+#partes-app .pr-disclosure .pr-inside {padding:11px 13px;color:#414b56;font-size:13px;line-height:1.65;overflow-x:auto;}
+#partes-app .pr-inside .pr-solution {font-size:16px;line-height:2;overflow-x:auto;}
+#partes-app .pr-reverse {display:flex; flex-wrap:wrap;gap:6px;margin:8px 0;}
+#partes-app .pr-reverse span {font-size:12px;padding:3px 7px;border-radius:5px;background:#f3f7fa;}
+#partes-app .pr-pagination {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;}
+#partes-app .pr-page-btn {border:1px solid var(--pr-border);border-radius:7px;background:#fff;padding:8px 12px;color:#31638d;cursor:pointer;}
+#partes-app .pr-page-btn:disabled {opacity:.35;cursor:default;}
+#partes-app .pr-page-number {font-size:12px;color:#64717e;}
+#partes-app .pr-note {font-size:13px;color:#5e6b76;border-left:3px solid #d7e2ed;padding:10px 13px;background:#f8fafc;border-radius:3px;}
+#partes-app .pr-small {color:#657482;font-size:12px;}
+#partes-app .pr-foot {padding:15px 0;border-top:1px solid var(--pr-border);margin-top:25px;}
+#partes-app .pr-empty {padding:24px;border:1px dashed #c9d5e1;border-radius:8px;color:#66788a;font-size:13px;}
+@media(max-width:760px) {#partes-app .pr-rule-grid{grid-template-columns:1fr;}}
+@media(max-width:550px) {
+  #partes-app h1{font-size:25px;}
+  #partes-app .pr-panel {padding:14px;}
+  #partes-app .pr-field {min-width:100%;}
+  #partes-app .pr-math-large,#partes-app .pr-stage-math {font-size:16px;}
+  #partes-app .pr-steps {gap:5px;}
+  #partes-app .pr-step-button {padding:7px;font-size:11px;}
+}
+
+#partes-app .pr-math-pair {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0;}
+#partes-app .pr-math-pair > div {border:1px solid var(--pr-border);border-radius:10px;padding:14px;background:white;min-width:0;overflow-x:auto;}
+#partes-app .pr-rules-label {font-size:12px;color:var(--pr-muted);font-weight:700;margin-bottom:6px;}
+#partes-app .pr-choice {display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:3px 0 9px;}
+#partes-app .pr-foot a {text-decoration:none;font-weight:600;}
+#partes-app .pr-footlinks {display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 14px;}
+#partes-app .pr-disclosure .pr-inside .pr-progression {border-left:2px solid #d2e0ed;padding-left:13px;margin:8px 0;}
+#partes-app .pr-progression p {margin:0 0 6px;color:#506173;font-size:12px;}
+#partes-app .pr-eq {overflow-x:auto;font-size:16px;line-height:2;margin:4px 0 11px;}
+#partes-app button:focus-visible,#partes-app select:focus-visible,#partes-app summary:focus-visible,#partes-app a:focus-visible {outline:2px solid #2563a5;outline-offset:3px;}
+@media(max-width:640px){#partes-app .pr-math-pair{grid-template-columns:1fr;}}
+
+
+/* Grelha contínua de exercícios, no mesmo formato de Primitivas imediatas. */
+#partes-app .pr-exercise-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 0;}
+#partes-app .pr-task {min-width:0;border:1px solid var(--pr-border);border-radius:10px;background:#fff;padding:13px;display:flex;flex-direction:column;gap:8px;}
+#partes-app .pr-task-head {font-size:11px;font-weight:750;color:#356d9c;letter-spacing:.03em;}
+#partes-app .pr-task-math {font-size:15px;min-height:76px;display:flex;align-items:center;justify-content:center;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:8px 0;}
+#partes-app .pr-task-math mjx-container {max-width:100%;}
+#partes-app .pr-task details {margin-top:auto;border-top:1px solid #e4eaf1;padding-top:9px;}
+#partes-app .pr-task details > summary {font-size:12px;color:#267cb9;font-weight:650;cursor:pointer;list-style:none;}
+#partes-app .pr-task details > summary::-webkit-details-marker {display:none;}
+#partes-app .pr-task details > summary:after {content:" +";font-weight:750;}
+#partes-app .pr-task details[open] > summary:after {content:" −";}
+#partes-app .pr-task-solution {padding-top:11px;border-top:1px dashed #e1e7ee;margin-top:10px;}
+#partes-app .pr-task-answer {font-size:14px;text-align:center;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:6px 0;}
+#partes-app .pr-task-working {font-size:12px;color:#536273;line-height:1.5;max-width:100%;overflow-x:auto;margin-bottom:9px;}
+#partes-app .pr-task-working p {margin:5px 0 2px;font-size:12px;}
+#partes-app .pr-task-working .pr-eq {font-size:13px;line-height:1.6;margin:2px 0 8px;}
+@media(max-width:940px) {#partes-app .pr-exercise-grid {grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:650px) {#partes-app .pr-exercise-grid {grid-template-columns:1fr;}}
+</style>
+
+<div id="partes-app">
+  <div class="pr-header">
+    <div class="pr-eyebrow">Tópicos de Matemática I · Recursos complementares</div>
+    <h1>Primitivação por partes</h1>
+    <p class="pr-lead">A primitivação por partes permite transformar o cálculo de uma primitiva noutro, idealmente mais simples. Veja como resulta da regra de derivação de um produto e pratique com exercícios cujas resoluções ficam ocultas para que tente resolvê-los autonomamente.</p>
+    <div class="pr-nav" aria-label="Navegação nesta página">
+      <a href="#metodo">A regra</a>
+      <a href="#compreender">Passo a passo</a>
+      <a href="#exercicios">Exercícios</a>
+      <a href="#verificar">Como verificar</a>
+    </div>
+  </div>
+
+  <div id="metodo" class="pr-section">
+    <h2>1. De onde vem a fórmula?</h2>
+    <p>Partimos da <strong>regra de derivação de um produto</strong>:</p>
+    <div class="pr-principle pr-definition">\[\frac{d}{dx}\big(u(x)v(x)\big)=u'(x)v(x)+u(x)v'(x).\]</div>
+    <p>Isolando um dos termos e tomando primitivas, obtemos a fórmula de <strong>integração por partes</strong>:</p>
+    <div class="pr-panel">
+      <div class="pr-math-large">\[\boxed{\int \color{#2563a5}{u}\,\color{#0f766e}{dv}=\color{#2563a5}{u}\,\color{#0f766e}{v}-\int \color{#0f766e}{v}\,\color{#2563a5}{du}}\]</div>
+      <div class="pr-legend">
+        <span class="pr-chip blue">Azul · função que vamos derivar, \(u\)</span>
+        <span class="pr-chip teal">Verde · parte que vamos primitivar, \(dv\)</span>
+        <span class="pr-chip amber">Laranja · resultado</span>
+      </div>
+      <p class="pr-small">Aqui, \(du=u'(x)\,dx\) e \(v\) é uma primitiva de \(dv\) (quando \(dv=v'(x)\,dx\)).</p>
+    </div>
+
+    <h3 class="pr-subheading">Como escolher \(u\) e \(dv\)?</h3>
+    <div class="pr-math-pair">
+      <div><div class="pr-rules-label">Escolher \(u\)</div><p>Procure uma função cuja <strong>derivada simplifique</strong> o exercício.</p><div class="pr-eq">\[u=x^2\ \longrightarrow\ du=2x\,dx\]</div></div>
+      <div><div class="pr-rules-label">Escolher \(dv\)</div><p>Escolha a parte para a qual consegue encontrar uma <strong>primitiva</strong>.</p><div class="pr-eq">\[dv=e^{2x}\,dx\ \longrightarrow\ v=\tfrac12e^{2x}\]</div></div>
+    </div>
+    <p class="pr-note">Não há uma escolha universal que funcione sempre. O objetivo é que a nova primitiva seja mais simples de calcular do que a inicial. Em certos casos, será necessário aplicar a regra duas vezes.</p>
+    <details class="pr-aside">
+      <summary>E quando a função não aparece como produto?</summary>
+      <div class="pr-aside-body">
+        <p>Podemos escrever \(\ln x=1\cdot\ln x\). Assim, em \(\int\ln x\,dx\), uma escolha útil é \(u=\ln x\) e \(dv=dx\).</p>
+        <div class="pr-expression">\[\int\ln x\,dx=x\ln x-\int 1\,dx=x\ln x-x+C,\qquad x>0.\]</div>
+        <p>O mesmo raciocínio aplica-se a algumas funções trigonométricas inversas.</p>
+      </div>
+    </details>
+  </div>
+
+  <div id="compreender" class="pr-section">
+    <h2>2. Um exemplo, passo a passo</h2>
+    <p>Vamos calcular \(\int xe^{2x}\,dx\). Clique em cada passo para acompanhar a escolha e perceber o que acontece à integral.</p>
+    <div class="pr-panel">
+      <div class="pr-math-large">\[\int xe^{2x}\,dx\]</div>
+      <div class="pr-legend">
+        <span class="pr-chip blue">Azul · \(u\) e \(du\)</span>
+        <span class="pr-chip teal">Verde · \(dv\) e \(v\)</span>
+        <span class="pr-chip amber">Laranja · primitiva</span>
+      </div>
+      <div class="pr-steps" role="group" aria-label="Passos do exemplo">
+        <button type="button" class="pr-step-button" data-stage="0" aria-pressed="true">1 · Escolha</button>
+        <button type="button" class="pr-step-button" data-stage="1" aria-pressed="false">2 · Derive e primitive</button>
+        <button type="button" class="pr-step-button" data-stage="2" aria-pressed="false">3 · Aplique a regra</button>
+        <button type="button" class="pr-step-button" data-stage="3" aria-pressed="false">4 · Verifique</button>
+      </div>
+      <div class="pr-stage" id="pr-stage" aria-live="polite"></div>
+      <details class="pr-aside">
+        <summary>O que fazer quando a integral inicial volta a aparecer?</summary>
+        <div class="pr-aside-body">
+          <p>Em exercícios como \(\int e^x\cos x\,dx\), aplicamos a técnica duas vezes. Depois, a integral inicial reaparece numa igualdade: basta <strong>isolá-la algebricamente</strong>.</p>
+          <div class="pr-expression">\[I=\int e^x\cos x\,dx\quad\Longrightarrow\quad 2I=e^x(\sin x+\cos x).\]</div>
+          <div class="pr-expression">\[I=\frac{e^x}{2}(\sin x+\cos x)+C.\]</div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div id="exercicios" class="pr-section">
+    <h2>3. Experimente resolver</h2>
+    <p>Determine a <strong>expressão geral das primitivas</strong> das seguintes funções. Todos os enunciados estão visíveis; abra <strong>Ver resolução</strong> apenas depois de tentar resolver cada exercício.</p>
+    <div id="pr-exercise-list" class="pr-exercise-grid" aria-label="Lista de exercícios"></div>
+  </div>
+
+  <div id="verificar" class="pr-section">
+    <h2>4. Como verificar uma primitiva?</h2>
+    <p>Depois de calcular a primitiva, <strong>derive o resultado</strong>. Deverá recuperar o integrando inicial.</p>
+    <div class="pr-principle">\[\frac{d}{dx}\left[\frac{e^{2x}}4(2x-1)+C\right]=\frac{e^{2x}}4\big(4x-2+2\big)=xe^{2x}.\]</div>
+    <p class="pr-note">Se uma aplicação por partes produzir uma integral mais complicada, reconsidere a escolha de \(u\) e \(dv\). Por exemplo, \(\int 2x\cos(x^2)\,dx\) é mais natural pela regra da cadeia ao contrário do que por partes.</p>
+  </div>
+  <div class="pr-foot">
+    <div class="pr-footlinks">
+      <a href="{{ '/teaching/' | relative_url }}">← Voltar à página de Ensino</a>
+      <a href="{{ '/teaching/primitivas/' | relative_url }}">Primitivas imediatas</a>
+    </div>
+    <p class="pr-small">Recurso complementar de estudo. Os materiais oficiais das unidades curriculares continuam disponíveis no Moodle e no Fénix.</p>
+  </div>
+</div>
+
+
+<script>
+(function () {
+  document.body.classList.add('partes-page');
+  // Reutiliza o MathJax já existente no layout do site.
+  if (!window.MathJax && !document.querySelector('script[src*="mathjax" i]')) {
+    window.MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+    const loader=document.createElement('script');
+    loader.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    loader.async=true; document.head.appendChild(loader);
+  }
+  const root=document.getElementById('partes-app');
+  const inline=s=>'\\('+s+'\\)';
+  const display=s=>'\\['+s+'\\]';
+  const escapeHtml=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const blue='#2563a5',teal='#0f766e',amber='#ad6518';
+  const stages=[
+    {title:'Escolher as duas partes',math:'\\color{'+blue+'}{u=x},\\qquad\\color{'+teal+'}{dv=e^{2x}\\,dx}',text:'Escolhemos u=x porque a sua derivada é mais simples. Sabemos primitivar e^{2x}.'},
+    {title:'Calcular du e v',math:'\\color{'+blue+'}{du=dx},\\qquad\\color{'+teal+'}{v=\\frac12e^{2x}}',text:'A derivada de x é 1 e uma primitiva de e^{2x} é e^{2x}/2.'},
+    {title:'Aplicar a fórmula',math:'\\int xe^{2x}\\,dx=\\frac{x e^{2x}}2-\\int\\frac{e^{2x}}2\\,dx=\\color{'+amber+'}{\\frac{e^{2x}}4(2x-1)+C}',text:'O novo integral é imediato. O sinal menos vem da fórmula de integração por partes.'},
+    {title:'Verificar pela derivação',math:'\\frac{d}{dx}\\left[\\frac{e^{2x}}4(2x-1)\\right]=xe^{2x}',text:'A derivada coincide com o integrando: a primitiva está correta.'}
+  ];
+  const stageBox=root.querySelector('#pr-stage');
+  function typeset(el){ if(window.MathJax && typeof window.MathJax.typesetPromise==='function'){window.MathJax.typesetPromise([el]).catch(err=>console.warn('MathJax:',err));} }
+  function stage(n){const s=stages[n];stageBox.innerHTML='<div class="pr-stage-title">'+escapeHtml(s.title)+'</div><div class="pr-stage-math">'+display(s.math)+'</div><p>'+escapeHtml(s.text)+'</p>'; root.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.stage===n)));typeset(stageBox);}
+  root.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>stage(+b.dataset.stage)));
+  stage(0);
+  const exercises = [{"n":1,"expr":"\\int x e^{x}\\,dx","answer":"\\left(x - 1\\right) e^{x}+C","choice":"u=x,\\qquad dv=e^{x}\\,dx","deriv":"du=1\\,dx,\\qquad v=e^{x}","work":"x e^{x}-\\int e^{x}\\,dx","func":"x e^{x}"},{"n":2,"expr":"\\int x e^{2 x}\\,dx","answer":"\\frac{\\left(2 x - 1\\right) e^{2 x}}{4}+C","choice":"u=x,\\qquad dv=e^{2 x}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{x e^{2 x}}{2}-\\int \\frac{e^{2 x}}{2}\\,dx","func":"x e^{2 x}"},{"n":3,"expr":"\\int x e^{x} + e^{x}\\,dx","answer":"x e^{x}+C","choice":"u=x + 1,\\qquad dv=e^{x}\\,dx","deriv":"du=1\\,dx,\\qquad v=e^{x}","work":"\\left(x + 1\\right) e^{x}-\\int e^{x}\\,dx","func":"x e^{x} + e^{x}"},{"n":4,"expr":"\\int x e^{- x}\\,dx","answer":"\\left(- x - 1\\right) e^{- x}+C","choice":"u=x,\\qquad dv=e^{- x}\\,dx","deriv":"du=1\\,dx,\\qquad v=- e^{- x}","work":"- x e^{- x}-\\int - e^{- x}\\,dx","func":"x e^{- x}"},{"n":5,"expr":"\\int 2^{x} x\\,dx","answer":"\\frac{2^{x} \\left(x \\ln{\\left(2 \\right)} - 1\\right)}{\\ln{\\left(2 \\right)}^{2}}+C","choice":"u=x,\\qquad dv=2^{x}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\frac{2^{x}}{\\ln{\\left(2 \\right)}}","work":"\\frac{2^{x} x}{\\ln{\\left(2 \\right)}}-\\int \\frac{2^{x}}{\\ln{\\left(2 \\right)}}\\,dx","func":"2^{x} x"},{"n":6,"expr":"\\int x^{2} e^{x}\\,dx","answer":"\\left(x^{2} - 2 x + 2\\right) e^{x}+C","choice":"u=x^{2},\\qquad dv=e^{x}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=e^{x}","work":"x^{2} e^{x}-\\int 2 x e^{x}\\,dx","func":"x^{2} e^{x}"},{"n":7,"expr":"\\int x^{2} e^{2 x}\\,dx","answer":"\\frac{\\left(2 x^{2} - 2 x + 1\\right) e^{2 x}}{4}+C","choice":"u=x^{2},\\qquad dv=e^{2 x}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{x^{2} e^{2 x}}{2}-\\int x e^{2 x}\\,dx","func":"x^{2} e^{2 x}"},{"n":8,"expr":"\\int x^{3} e^{x}\\,dx","answer":"\\left(x^{3} - 3 x^{2} + 6 x - 6\\right) e^{x}+C","choice":"u=x^{3},\\qquad dv=e^{x}\\,dx","deriv":"du=3 x^{2}\\,dx,\\qquad v=e^{x}","work":"x^{3} e^{x}-\\int 3 x^{2} e^{x}\\,dx","func":"x^{3} e^{x}"},{"n":9,"expr":"\\int 2 x e^{3 x} - e^{3 x}\\,dx","answer":"\\frac{\\left(6 x - 5\\right) e^{3 x}}{9}+C","choice":"u=2 x - 1,\\qquad dv=e^{3 x}\\,dx","deriv":"du=2\\,dx,\\qquad v=\\frac{e^{3 x}}{3}","work":"\\frac{\\left(2 x - 1\\right) e^{3 x}}{3}-\\int \\frac{2 e^{3 x}}{3}\\,dx","func":"2 x e^{3 x} - e^{3 x}"},{"n":10,"expr":"\\int x e^{\\frac{x}{2}}\\,dx","answer":"\\left(2 x - 4\\right) e^{\\frac{x}{2}}+C","choice":"u=x,\\qquad dv=e^{\\frac{x}{2}}\\,dx","deriv":"du=1\\,dx,\\qquad v=2 e^{\\frac{x}{2}}","work":"2 x e^{\\frac{x}{2}}-\\int 2 e^{\\frac{x}{2}}\\,dx","func":"x e^{\\frac{x}{2}}"},{"n":11,"expr":"\\int x^{2} e^{- x}\\,dx","answer":"\\left(- x^{2} - 2 x - 2\\right) e^{- x}+C","choice":"u=x^{2},\\qquad dv=e^{- x}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=- e^{- x}","work":"- x^{2} e^{- x}-\\int - 2 x e^{- x}\\,dx","func":"x^{2} e^{- x}"},{"n":12,"expr":"\\int x^{2} e^{x} + e^{x}\\,dx","answer":"\\left(x^{2} - 2 x + 3\\right) e^{x}+C","choice":"u=x^{2} + 1,\\qquad dv=e^{x}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=e^{x}","work":"\\left(x^{2} + 1\\right) e^{x}-\\int 2 x e^{x}\\,dx","func":"x^{2} e^{x} + e^{x}"},{"n":13,"expr":"\\int x^{3} e^{2 x}\\,dx","answer":"\\frac{\\left(4 x^{3} - 6 x^{2} + 6 x - 3\\right) e^{2 x}}{8}+C","choice":"u=x^{3},\\qquad dv=e^{2 x}\\,dx","deriv":"du=3 x^{2}\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{x^{3} e^{2 x}}{2}-\\int \\frac{3 x^{2} e^{2 x}}{2}\\,dx","func":"x^{3} e^{2 x}"},{"n":14,"expr":"\\int x^{4} e^{x}\\,dx","answer":"\\left(x^{4} - 4 x^{3} + 12 x^{2} - 24 x + 24\\right) e^{x}+C","choice":"u=x^{4},\\qquad dv=e^{x}\\,dx","deriv":"du=4 x^{3}\\,dx,\\qquad v=e^{x}","work":"x^{4} e^{x}-\\int 4 x^{3} e^{x}\\,dx","func":"x^{4} e^{x}"},{"n":15,"expr":"\\int 3^{x} x^{2}\\,dx","answer":"\\frac{3^{x} \\left(x^{2} \\ln{\\left(3 \\right)}^{2} - 2 x \\ln{\\left(3 \\right)} + 2\\right)}{\\ln{\\left(3 \\right)}^{3}}+C","choice":"u=x^{2},\\qquad dv=3^{x}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=\\frac{3^{x}}{\\ln{\\left(3 \\right)}}","work":"\\frac{3^{x} x^{2}}{\\ln{\\left(3 \\right)}}-\\int \\frac{2 \\cdot 3^{x} x}{\\ln{\\left(3 \\right)}}\\,dx","func":"3^{x} x^{2}"},{"n":16,"expr":"\\int x \\cos{\\left(x \\right)}\\,dx","answer":"x \\sin{\\left(x \\right)} + \\cos{\\left(x \\right)}+C","choice":"u=x,\\qquad dv=\\cos{\\left(x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\sin{\\left(x \\right)}","work":"x \\sin{\\left(x \\right)}-\\int \\sin{\\left(x \\right)}\\,dx","func":"x \\cos{\\left(x \\right)}"},{"n":17,"expr":"\\int x \\sin{\\left(x \\right)}\\,dx","answer":"- x \\cos{\\left(x \\right)} + \\sin{\\left(x \\right)}+C","choice":"u=x,\\qquad dv=\\sin{\\left(x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=- \\cos{\\left(x \\right)}","work":"- x \\cos{\\left(x \\right)}-\\int - \\cos{\\left(x \\right)}\\,dx","func":"x \\sin{\\left(x \\right)}"},{"n":18,"expr":"\\int x \\cos{\\left(2 x \\right)}\\,dx","answer":"\\frac{x \\sin{\\left(2 x \\right)}}{2} + \\frac{\\cos{\\left(2 x \\right)}}{4}+C","choice":"u=x,\\qquad dv=\\cos{\\left(2 x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\frac{\\sin{\\left(2 x \\right)}}{2}","work":"\\frac{x \\sin{\\left(2 x \\right)}}{2}-\\int \\frac{\\sin{\\left(2 x \\right)}}{2}\\,dx","func":"x \\cos{\\left(2 x \\right)}"},{"n":19,"expr":"\\int x \\sin{\\left(3 x \\right)}\\,dx","answer":"- \\frac{x \\cos{\\left(3 x \\right)}}{3} + \\frac{\\sin{\\left(3 x \\right)}}{9}+C","choice":"u=x,\\qquad dv=\\sin{\\left(3 x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=- \\frac{\\cos{\\left(3 x \\right)}}{3}","work":"- \\frac{x \\cos{\\left(3 x \\right)}}{3}-\\int - \\frac{\\cos{\\left(3 x \\right)}}{3}\\,dx","func":"x \\sin{\\left(3 x \\right)}"},{"n":20,"expr":"\\int x^{2} \\cos{\\left(x \\right)}\\,dx","answer":"x^{2} \\sin{\\left(x \\right)} + 2 x \\cos{\\left(x \\right)} - 2 \\sin{\\left(x \\right)}+C","choice":"u=x^{2},\\qquad dv=\\cos{\\left(x \\right)}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=\\sin{\\left(x \\right)}","work":"x^{2} \\sin{\\left(x \\right)}-\\int 2 x \\sin{\\left(x \\right)}\\,dx","func":"x^{2} \\cos{\\left(x \\right)}"},{"n":21,"expr":"\\int x^{2} \\sin{\\left(x \\right)}\\,dx","answer":"- x^{2} \\cos{\\left(x \\right)} + 2 x \\sin{\\left(x \\right)} + 2 \\cos{\\left(x \\right)}+C","choice":"u=x^{2},\\qquad dv=\\sin{\\left(x \\right)}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=- \\cos{\\left(x \\right)}","work":"- x^{2} \\cos{\\left(x \\right)}-\\int - 2 x \\cos{\\left(x \\right)}\\,dx","func":"x^{2} \\sin{\\left(x \\right)}"},{"n":22,"expr":"\\int x^{2} \\cos{\\left(2 x \\right)}\\,dx","answer":"\\frac{x^{2} \\sin{\\left(2 x \\right)}}{2} + \\frac{x \\cos{\\left(2 x \\right)}}{2} - \\frac{\\sin{\\left(2 x \\right)}}{4}+C","choice":"u=x^{2},\\qquad dv=\\cos{\\left(2 x \\right)}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=\\frac{\\sin{\\left(2 x \\right)}}{2}","work":"\\frac{x^{2} \\sin{\\left(2 x \\right)}}{2}-\\int x \\sin{\\left(2 x \\right)}\\,dx","func":"x^{2} \\cos{\\left(2 x \\right)}"},{"n":23,"expr":"\\int x \\sin{\\left(x \\right)} + \\sin{\\left(x \\right)}\\,dx","answer":"- x \\cos{\\left(x \\right)} + \\sin{\\left(x \\right)} - \\cos{\\left(x \\right)}+C","choice":"u=x + 1,\\qquad dv=\\sin{\\left(x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=- \\cos{\\left(x \\right)}","work":"- \\left(x + 1\\right) \\cos{\\left(x \\right)}-\\int - \\cos{\\left(x \\right)}\\,dx","func":"x \\sin{\\left(x \\right)} + \\sin{\\left(x \\right)}"},{"n":24,"expr":"\\int 2 x \\cos{\\left(x \\right)} - \\cos{\\left(x \\right)}\\,dx","answer":"2 x \\sin{\\left(x \\right)} - \\sin{\\left(x \\right)} + 2 \\cos{\\left(x \\right)}+C","choice":"u=2 x - 1,\\qquad dv=\\cos{\\left(x \\right)}\\,dx","deriv":"du=2\\,dx,\\qquad v=\\sin{\\left(x \\right)}","work":"\\left(2 x - 1\\right) \\sin{\\left(x \\right)}-\\int 2 \\sin{\\left(x \\right)}\\,dx","func":"2 x \\cos{\\left(x \\right)} - \\cos{\\left(x \\right)}"},{"n":25,"expr":"\\int x^{3} \\sin{\\left(x \\right)}\\,dx","answer":"- x^{3} \\cos{\\left(x \\right)} + 3 x^{2} \\sin{\\left(x \\right)} + 6 x \\cos{\\left(x \\right)} - 6 \\sin{\\left(x \\right)}+C","choice":"u=x^{3},\\qquad dv=\\sin{\\left(x \\right)}\\,dx","deriv":"du=3 x^{2}\\,dx,\\qquad v=- \\cos{\\left(x \\right)}","work":"- x^{3} \\cos{\\left(x \\right)}-\\int - 3 x^{2} \\cos{\\left(x \\right)}\\,dx","func":"x^{3} \\sin{\\left(x \\right)}"},{"n":26,"expr":"\\int x^{3} \\cos{\\left(x \\right)}\\,dx","answer":"x^{3} \\sin{\\left(x \\right)} + 3 x^{2} \\cos{\\left(x \\right)} - 6 x \\sin{\\left(x \\right)} - 6 \\cos{\\left(x \\right)}+C","choice":"u=x^{3},\\qquad dv=\\cos{\\left(x \\right)}\\,dx","deriv":"du=3 x^{2}\\,dx,\\qquad v=\\sin{\\left(x \\right)}","work":"x^{3} \\sin{\\left(x \\right)}-\\int 3 x^{2} \\sin{\\left(x \\right)}\\,dx","func":"x^{3} \\cos{\\left(x \\right)}"},{"n":27,"expr":"\\int x \\cos{\\left(4 x \\right)}\\,dx","answer":"\\frac{x \\sin{\\left(4 x \\right)}}{4} + \\frac{\\cos{\\left(4 x \\right)}}{16}+C","choice":"u=x,\\qquad dv=\\cos{\\left(4 x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\frac{\\sin{\\left(4 x \\right)}}{4}","work":"\\frac{x \\sin{\\left(4 x \\right)}}{4}-\\int \\frac{\\sin{\\left(4 x \\right)}}{4}\\,dx","func":"x \\cos{\\left(4 x \\right)}"},{"n":28,"expr":"\\int x \\sin{\\left(\\pi x \\right)}\\,dx","answer":"- \\frac{x \\cos{\\left(\\pi x \\right)}}{\\pi} + \\frac{\\sin{\\left(\\pi x \\right)}}{\\pi^{2}}+C","choice":"u=x,\\qquad dv=\\sin{\\left(\\pi x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=- \\frac{\\cos{\\left(\\pi x \\right)}}{\\pi}","work":"- \\frac{x \\cos{\\left(\\pi x \\right)}}{\\pi}-\\int - \\frac{\\cos{\\left(\\pi x \\right)}}{\\pi}\\,dx","func":"x \\sin{\\left(\\pi x \\right)}"},{"n":29,"expr":"\\int x^{2} \\sin{\\left(2 x \\right)}\\,dx","answer":"- \\frac{x^{2} \\cos{\\left(2 x \\right)}}{2} + \\frac{x \\sin{\\left(2 x \\right)}}{2} + \\frac{\\cos{\\left(2 x \\right)}}{4}+C","choice":"u=x^{2},\\qquad dv=\\sin{\\left(2 x \\right)}\\,dx","deriv":"du=2 x\\,dx,\\qquad v=- \\frac{\\cos{\\left(2 x \\right)}}{2}","work":"- \\frac{x^{2} \\cos{\\left(2 x \\right)}}{2}-\\int - x \\cos{\\left(2 x \\right)}\\,dx","func":"x^{2} \\sin{\\left(2 x \\right)}"},{"n":30,"expr":"\\int x \\cos{\\left(3 x \\right)} - 2 \\cos{\\left(3 x \\right)}\\,dx","answer":"\\frac{x \\sin{\\left(3 x \\right)}}{3} - \\frac{2 \\sin{\\left(3 x \\right)}}{3} + \\frac{\\cos{\\left(3 x \\right)}}{9}+C","choice":"u=x - 2,\\qquad dv=\\cos{\\left(3 x \\right)}\\,dx","deriv":"du=1\\,dx,\\qquad v=\\frac{\\sin{\\left(3 x \\right)}}{3}","work":"\\frac{\\left(x - 2\\right) \\sin{\\left(3 x \\right)}}{3}-\\int \\frac{\\sin{\\left(3 x \\right)}}{3}\\,dx","func":"x \\cos{\\left(3 x \\right)} - 2 \\cos{\\left(3 x \\right)}"},{"n":31,"expr":"\\int \\ln{\\left(x \\right)}\\,dx","answer":"x \\ln{\\left(x \\right)} - x+C","choice":"u=\\ln{\\left(x \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=x","work":"x \\ln{\\left(x \\right)}-\\int 1\\,dx","func":"\\ln{\\left(x \\right)}"},{"n":32,"expr":"\\int x \\ln{\\left(x \\right)}\\,dx","answer":"\\frac{x^{2} \\ln{\\left(x \\right)}}{2} - \\frac{x^{2}}{4}+C","choice":"u=\\ln{\\left(x \\right)},\\qquad dv=x\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=\\frac{x^{2}}{2}","work":"\\frac{x^{2} \\ln{\\left(x \\right)}}{2}-\\int \\frac{x}{2}\\,dx","func":"x \\ln{\\left(x \\right)}"},{"n":33,"expr":"\\int x^{2} \\ln{\\left(x \\right)}\\,dx","answer":"\\frac{x^{3} \\ln{\\left(x \\right)}}{3} - \\frac{x^{3}}{9}+C","choice":"u=\\ln{\\left(x \\right)},\\qquad dv=x^{2}\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=\\frac{x^{3}}{3}","work":"\\frac{x^{3} \\ln{\\left(x \\right)}}{3}-\\int \\frac{x^{2}}{3}\\,dx","func":"x^{2} \\ln{\\left(x \\right)}"},{"n":34,"expr":"\\int \\ln{\\left(2 x \\right)}\\,dx","answer":"x \\ln{\\left(2 x \\right)} - x+C","choice":"u=\\ln{\\left(2 x \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=x","work":"x \\ln{\\left(2 x \\right)}-\\int 1\\,dx","func":"\\ln{\\left(2 x \\right)}"},{"n":35,"expr":"\\int \\ln{\\left(x + 1 \\right)}\\,dx","answer":"x \\ln{\\left(x + 1 \\right)} - x + \\ln{\\left(x + 1 \\right)}+C","choice":"u=\\ln{\\left(x + 1 \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{1}{x + 1}\\,dx,\\qquad v=x","work":"x \\ln{\\left(x + 1 \\right)}-\\int \\frac{x}{x + 1}\\,dx","func":"\\ln{\\left(x + 1 \\right)}"},{"n":36,"expr":"\\int \\ln{\\left(x \\right)}^{2}\\,dx","answer":"x \\ln{\\left(x \\right)}^{2} - 2 x \\ln{\\left(x \\right)} + 2 x+C","choice":"u=\\ln{\\left(x \\right)}^{2},\\qquad dv=1\\,dx","deriv":"du=\\frac{2 \\ln{\\left(x \\right)}}{x}\\,dx,\\qquad v=x","work":"x \\ln{\\left(x \\right)}^{2}-\\int 2 \\ln{\\left(x \\right)}\\,dx","func":"\\ln{\\left(x \\right)}^{2}"},{"n":37,"expr":"\\int x \\ln{\\left(x \\right)}^{2}\\,dx","answer":"\\frac{x^{2} \\ln{\\left(x \\right)}^{2}}{2} - \\frac{x^{2} \\ln{\\left(x \\right)}}{2} + \\frac{x^{2}}{4}+C","choice":"u=\\ln{\\left(x \\right)}^{2},\\qquad dv=x\\,dx","deriv":"du=\\frac{2 \\ln{\\left(x \\right)}}{x}\\,dx,\\qquad v=\\frac{x^{2}}{2}","work":"\\frac{x^{2} \\ln{\\left(x \\right)}^{2}}{2}-\\int x \\ln{\\left(x \\right)}\\,dx","func":"x \\ln{\\left(x \\right)}^{2}"},{"n":38,"expr":"\\int \\arctan{\\left(x \\right)}\\,dx","answer":"x \\arctan{\\left(x \\right)} - \\frac{\\ln{\\left(x^{2} + 1 \\right)}}{2}+C","choice":"u=\\arctan{\\left(x \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{1}{x^{2} + 1}\\,dx,\\qquad v=x","work":"x \\arctan{\\left(x \\right)}-\\int \\frac{x}{x^{2} + 1}\\,dx","func":"\\arctan{\\left(x \\right)}"},{"n":39,"expr":"\\int \\arcsin{\\left(x \\right)}\\,dx","answer":"x \\arcsin{\\left(x \\right)} + \\sqrt{1 - x^{2}}+C","choice":"u=\\arcsin{\\left(x \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{1}{\\sqrt{1 - x^{2}}}\\,dx,\\qquad v=x","work":"x \\arcsin{\\left(x \\right)}-\\int \\frac{x}{\\sqrt{1 - x^{2}}}\\,dx","func":"\\arcsin{\\left(x \\right)}"},{"n":40,"expr":"\\int \\arccos{\\left(x \\right)}\\,dx","answer":"x \\arccos{\\left(x \\right)} - \\sqrt{1 - x^{2}}+C","choice":"u=\\arccos{\\left(x \\right)},\\qquad dv=1\\,dx","deriv":"du=- \\frac{1}{\\sqrt{1 - x^{2}}}\\,dx,\\qquad v=x","work":"x \\arccos{\\left(x \\right)}-\\int - \\frac{x}{\\sqrt{1 - x^{2}}}\\,dx","func":"\\arccos{\\left(x \\right)}"},{"n":41,"expr":"\\int x \\arctan{\\left(x \\right)}\\,dx","answer":"\\frac{x^{2} \\arctan{\\left(x \\right)}}{2} - \\frac{x}{2} + \\frac{\\arctan{\\left(x \\right)}}{2}+C","choice":"u=\\arctan{\\left(x \\right)},\\qquad dv=x\\,dx","deriv":"du=\\frac{1}{x^{2} + 1}\\,dx,\\qquad v=\\frac{x^{2}}{2}","work":"\\frac{x^{2} \\arctan{\\left(x \\right)}}{2}-\\int \\frac{x^{2}}{2 \\left(x^{2} + 1\\right)}\\,dx","func":"x \\arctan{\\left(x \\right)}"},{"n":42,"expr":"\\int \\frac{\\ln{\\left(x \\right)}}{x^{2}}\\,dx","answer":"- \\frac{\\ln{\\left(x \\right)}}{x} - \\frac{1}{x}+C","choice":"u=\\ln{\\left(x \\right)},\\qquad dv=\\frac{1}{x^{2}}\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=- \\frac{1}{x}","work":"- \\frac{\\ln{\\left(x \\right)}}{x}-\\int - \\frac{1}{x^{2}}\\,dx","func":"\\frac{\\ln{\\left(x \\right)}}{x^{2}}"},{"n":43,"expr":"\\int \\sqrt{x} \\ln{\\left(x \\right)}\\,dx","answer":"\\frac{2 x^{\\frac{3}{2}} \\ln{\\left(x \\right)}}{3} - \\frac{4 x^{\\frac{3}{2}}}{9}+C","choice":"u=\\ln{\\left(x \\right)},\\qquad dv=\\sqrt{x}\\,dx","deriv":"du=\\frac{1}{x}\\,dx,\\qquad v=\\frac{2 x^{\\frac{3}{2}}}{3}","work":"\\frac{2 x^{\\frac{3}{2}} \\ln{\\left(x \\right)}}{3}-\\int \\frac{2 \\sqrt{x}}{3}\\,dx","func":"\\sqrt{x} \\ln{\\left(x \\right)}"},{"n":44,"expr":"\\int \\ln{\\left(x^{2} + 1 \\right)}\\,dx","answer":"x \\ln{\\left(x^{2} + 1 \\right)} - 2 x + 2 \\arctan{\\left(x \\right)}+C","choice":"u=\\ln{\\left(x^{2} + 1 \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{2 x}{x^{2} + 1}\\,dx,\\qquad v=x","work":"x \\ln{\\left(x^{2} + 1 \\right)}-\\int \\frac{2 x^{2}}{x^{2} + 1}\\,dx","func":"\\ln{\\left(x^{2} + 1 \\right)}"},{"n":45,"expr":"\\int \\arctan{\\left(2 x \\right)}\\,dx","answer":"x \\arctan{\\left(2 x \\right)} - \\frac{\\ln{\\left(4 x^{2} + 1 \\right)}}{4}+C","choice":"u=\\arctan{\\left(2 x \\right)},\\qquad dv=1\\,dx","deriv":"du=\\frac{2}{4 x^{2} + 1}\\,dx,\\qquad v=x","work":"x \\arctan{\\left(2 x \\right)}-\\int \\frac{2 x}{4 x^{2} + 1}\\,dx","func":"\\arctan{\\left(2 x \\right)}"},{"n":46,"expr":"\\int e^{x} \\sin{\\left(x \\right)}\\,dx","answer":"\\frac{e^{x} \\sin{\\left(x \\right)}}{2} - \\frac{e^{x} \\cos{\\left(x \\right)}}{2}+C","choice":"u=\\sin{\\left(x \\right)},\\qquad dv=e^{x}\\,dx","deriv":"du=\\cos{\\left(x \\right)}\\,dx,\\qquad v=e^{x}","work":"e^{x} \\sin{\\left(x \\right)}-\\int e^{x} \\cos{\\left(x \\right)}\\,dx","func":"e^{x} \\sin{\\left(x \\right)}"},{"n":47,"expr":"\\int e^{x} \\cos{\\left(x \\right)}\\,dx","answer":"\\frac{e^{x} \\sin{\\left(x \\right)}}{2} + \\frac{e^{x} \\cos{\\left(x \\right)}}{2}+C","choice":"u=\\cos{\\left(x \\right)},\\qquad dv=e^{x}\\,dx","deriv":"du=- \\sin{\\left(x \\right)}\\,dx,\\qquad v=e^{x}","work":"e^{x} \\cos{\\left(x \\right)}-\\int - e^{x} \\sin{\\left(x \\right)}\\,dx","func":"e^{x} \\cos{\\left(x \\right)}"},{"n":48,"expr":"\\int e^{2 x} \\sin{\\left(x \\right)}\\,dx","answer":"\\frac{2 e^{2 x} \\sin{\\left(x \\right)}}{5} - \\frac{e^{2 x} \\cos{\\left(x \\right)}}{5}+C","choice":"u=\\sin{\\left(x \\right)},\\qquad dv=e^{2 x}\\,dx","deriv":"du=\\cos{\\left(x \\right)}\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{e^{2 x} \\sin{\\left(x \\right)}}{2}-\\int \\frac{e^{2 x} \\cos{\\left(x \\right)}}{2}\\,dx","func":"e^{2 x} \\sin{\\left(x \\right)}"},{"n":49,"expr":"\\int e^{2 x} \\cos{\\left(x \\right)}\\,dx","answer":"\\frac{e^{2 x} \\sin{\\left(x \\right)}}{5} + \\frac{2 e^{2 x} \\cos{\\left(x \\right)}}{5}+C","choice":"u=\\cos{\\left(x \\right)},\\qquad dv=e^{2 x}\\,dx","deriv":"du=- \\sin{\\left(x \\right)}\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{e^{2 x} \\cos{\\left(x \\right)}}{2}-\\int - \\frac{e^{2 x} \\sin{\\left(x \\right)}}{2}\\,dx","func":"e^{2 x} \\cos{\\left(x \\right)}"},{"n":50,"expr":"\\int e^{x} \\sin{\\left(2 x \\right)}\\,dx","answer":"\\frac{e^{x} \\sin{\\left(2 x \\right)}}{5} - \\frac{2 e^{x} \\cos{\\left(2 x \\right)}}{5}+C","choice":"u=\\sin{\\left(2 x \\right)},\\qquad dv=e^{x}\\,dx","deriv":"du=2 \\cos{\\left(2 x \\right)}\\,dx,\\qquad v=e^{x}","work":"e^{x} \\sin{\\left(2 x \\right)}-\\int 2 e^{x} \\cos{\\left(2 x \\right)}\\,dx","func":"e^{x} \\sin{\\left(2 x \\right)}"},{"n":51,"expr":"\\int e^{x} \\cos{\\left(2 x \\right)}\\,dx","answer":"\\frac{2 e^{x} \\sin{\\left(2 x \\right)}}{5} + \\frac{e^{x} \\cos{\\left(2 x \\right)}}{5}+C","choice":"u=\\cos{\\left(2 x \\right)},\\qquad dv=e^{x}\\,dx","deriv":"du=- 2 \\sin{\\left(2 x \\right)}\\,dx,\\qquad v=e^{x}","work":"e^{x} \\cos{\\left(2 x \\right)}-\\int - 2 e^{x} \\sin{\\left(2 x \\right)}\\,dx","func":"e^{x} \\cos{\\left(2 x \\right)}"},{"n":52,"expr":"\\int e^{- x} \\sin{\\left(x \\right)}\\,dx","answer":"- \\frac{e^{- x} \\sin{\\left(x \\right)}}{2} - \\frac{e^{- x} \\cos{\\left(x \\right)}}{2}+C","choice":"u=\\sin{\\left(x \\right)},\\qquad dv=e^{- x}\\,dx","deriv":"du=\\cos{\\left(x \\right)}\\,dx,\\qquad v=- e^{- x}","work":"- e^{- x} \\sin{\\left(x \\right)}-\\int - e^{- x} \\cos{\\left(x \\right)}\\,dx","func":"e^{- x} \\sin{\\left(x \\right)}"},{"n":53,"expr":"\\int e^{- x} \\cos{\\left(x \\right)}\\,dx","answer":"\\frac{e^{- x} \\sin{\\left(x \\right)}}{2} - \\frac{e^{- x} \\cos{\\left(x \\right)}}{2}+C","choice":"u=\\cos{\\left(x \\right)},\\qquad dv=e^{- x}\\,dx","deriv":"du=- \\sin{\\left(x \\right)}\\,dx,\\qquad v=- e^{- x}","work":"- e^{- x} \\cos{\\left(x \\right)}-\\int e^{- x} \\sin{\\left(x \\right)}\\,dx","func":"e^{- x} \\cos{\\left(x \\right)}"},{"n":54,"expr":"\\int e^{3 x} \\sin{\\left(2 x \\right)}\\,dx","answer":"\\frac{3 e^{3 x} \\sin{\\left(2 x \\right)}}{13} - \\frac{2 e^{3 x} \\cos{\\left(2 x \\right)}}{13}+C","choice":"u=\\sin{\\left(2 x \\right)},\\qquad dv=e^{3 x}\\,dx","deriv":"du=2 \\cos{\\left(2 x \\right)}\\,dx,\\qquad v=\\frac{e^{3 x}}{3}","work":"\\frac{e^{3 x} \\sin{\\left(2 x \\right)}}{3}-\\int \\frac{2 e^{3 x} \\cos{\\left(2 x \\right)}}{3}\\,dx","func":"e^{3 x} \\sin{\\left(2 x \\right)}"},{"n":55,"expr":"\\int e^{3 x} \\cos{\\left(2 x \\right)}\\,dx","answer":"\\frac{2 e^{3 x} \\sin{\\left(2 x \\right)}}{13} + \\frac{3 e^{3 x} \\cos{\\left(2 x \\right)}}{13}+C","choice":"u=\\cos{\\left(2 x \\right)},\\qquad dv=e^{3 x}\\,dx","deriv":"du=- 2 \\sin{\\left(2 x \\right)}\\,dx,\\qquad v=\\frac{e^{3 x}}{3}","work":"\\frac{e^{3 x} \\cos{\\left(2 x \\right)}}{3}-\\int - \\frac{2 e^{3 x} \\sin{\\left(2 x \\right)}}{3}\\,dx","func":"e^{3 x} \\cos{\\left(2 x \\right)}"},{"n":56,"expr":"\\int e^{2 x} \\sin{\\left(3 x \\right)}\\,dx","answer":"\\frac{2 e^{2 x} \\sin{\\left(3 x \\right)}}{13} - \\frac{3 e^{2 x} \\cos{\\left(3 x \\right)}}{13}+C","choice":"u=\\sin{\\left(3 x \\right)},\\qquad dv=e^{2 x}\\,dx","deriv":"du=3 \\cos{\\left(3 x \\right)}\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{e^{2 x} \\sin{\\left(3 x \\right)}}{2}-\\int \\frac{3 e^{2 x} \\cos{\\left(3 x \\right)}}{2}\\,dx","func":"e^{2 x} \\sin{\\left(3 x \\right)}"},{"n":57,"expr":"\\int e^{2 x} \\cos{\\left(3 x \\right)}\\,dx","answer":"\\frac{3 e^{2 x} \\sin{\\left(3 x \\right)}}{13} + \\frac{2 e^{2 x} \\cos{\\left(3 x \\right)}}{13}+C","choice":"u=\\cos{\\left(3 x \\right)},\\qquad dv=e^{2 x}\\,dx","deriv":"du=- 3 \\sin{\\left(3 x \\right)}\\,dx,\\qquad v=\\frac{e^{2 x}}{2}","work":"\\frac{e^{2 x} \\cos{\\left(3 x \\right)}}{2}-\\int - \\frac{3 e^{2 x} \\sin{\\left(3 x \\right)}}{2}\\,dx","func":"e^{2 x} \\cos{\\left(3 x \\right)}"},{"n":58,"func":"x\\ln(x+3)","answer":"\\frac12\\left[(x^2-9)\\ln(x+3)-\\frac{x^2}{2}+3x\\right]+C"},{"n":59,"func":"x^2\\exp(x)","answer":"(x^2-2x+2)\\exp(x)+C"},{"n":60,"func":"x^2\\sin x","answer":"(2-x^2)\\cos x+2x\\sin x+C"},{"n":61,"func":"(x^2+6x-2)\\exp\\left(\\frac{x}{3}\\right)","answer":"(3x^2-6)\\exp\\left(\\frac{x}{3}\\right)+C"},{"n":62,"func":"\\arctan\\left(\\frac{x}{2}\\right)","answer":"x\\arctan\\left(\\frac{x}{2}\\right)-\\ln(4+x^2)+C"},{"n":63,"func":"x^3\\exp(x^2)","answer":"\\frac12(x^2-1)\\exp(x^2)+C"},{"n":64,"func":"\\arcsin(2x)","answer":"x\\arcsin(2x)+\\frac12\\sqrt{1-4x^2}+C"},{"n":65,"func":"\\exp(x)\\sin(2x)","answer":"\\frac15\\exp(x)\\big(\\sin(2x)-2\\cos(2x)\\big)+C"},{"n":66,"func":"\\sin\\left(\\frac{x}{2}\\right)\\cos(3x)","answer":"\\frac{2}{35}\\left[\\cos\\left(\\frac{x}{2}\\right)\\cos(3x)+6\\sin\\left(\\frac{x}{2}\\right)\\sin(3x)\\right]+C"},{"n":67,"func":"\\frac{x}{\\cos^2 x}","answer":"x\\tan x+\\ln|\\cos x|+C"},{"n":68,"func":"(x+3)\\exp\\left(\\frac{x}{2}\\right)","answer":"(2x+2)\\exp\\left(\\frac{x}{2}\\right)+C"},{"n":69,"func":"(2x^2+1)\\exp(3x)","answer":"\\left(\\frac{2x^2+1}{3}-\\frac{4x}{9}+\\frac4{27}\\right)\\exp(3x)+C"},{"n":70,"func":"x\\exp(2x)","answer":"\\left(\\frac x2-\\frac14\\right)\\exp(2x)+C"},{"n":71,"func":"\\arcsin\\left(\\frac{x}{3}\\right)","answer":"x\\arcsin\\left(\\frac{x}{3}\\right)+\\sqrt{9-x^2}+C"},{"n":72,"func":"\\frac{x+2}{3}\\cos(5x)","answer":"\\frac{x+2}{15}\\sin(5x)+\\frac1{75}\\cos(5x)+C"},{"n":73,"func":"\\arctan(3x)","answer":"x\\arctan(3x)-\\frac16\\ln(1+9x^2)+C"},{"n":74,"func":"\\exp(2x)\\sin(3x)","answer":"\\frac1{13}\\exp(2x)\\big(2\\sin(3x)-3\\cos(3x)\\big)+C"},{"n":75,"func":"(2x-1)\\sin(2x)","answer":"\\frac{1-2x}{2}\\cos(2x)+\\frac12\\sin(2x)+C"},{"n":76,"func":"x^7\\exp(x^4)","answer":"\\frac14(x^4-1)\\exp(x^4)+C"},{"n":77,"func":"\\frac{x}{\\sin^2 x}","answer":"-x\\cot x+\\ln|\\sin x|+C"},{"n":78,"func":"\\sin(2x)\\cos(3x)","answer":"\\frac25\\cos(2x)\\cos(3x)+\\frac35\\sin(2x)\\sin(3x)+C"},{"n":79,"func":"\\ln\\left(x+\\sqrt{1+x^2}\\right)","answer":"x\\ln\\left(x+\\sqrt{1+x^2}\\right)-\\sqrt{1+x^2}+C"},{"n":80,"func":"\\frac{x\\arctan x}{\\sqrt{1+x^2}}","answer":"\\sqrt{1+x^2}\\,\\arctan x-\\ln\\left|\\sqrt{1+x^2}+x\\right|+C"},{"n":81,"func":"\\exp(3x)\\big[\\sin(2x)-\\cos(2x)\\big]","answer":"\\frac1{13}\\exp(3x)\\big(\\sin(2x)-5\\cos(2x)\\big)+C"},{"n":82,"func":"\\frac{\\arcsin x}{x^2}","answer":"-\\frac{\\arcsin x}{x}+\\frac12\\ln\\left|\\frac{1-\\sqrt{1-x^2}}{1+\\sqrt{1-x^2}}\\right|+C"},{"n":83,"func":"x\\arctan^2 x","answer":"\\frac12(x^2+1)\\arctan^2 x-x\\arctan x+\\frac12\\ln(1+x^2)+C"}];
+  const list=root.querySelector('#pr-exercise-list');
+  // Uma única grelha contínua: enunciados visíveis, sem filtros nem pistas.
+  // O aluno decide quando abrir a resolução de cada exercício.
+  const wrap=s=>'\\('+s+'\\)';
+  function card(e,index){
+    const worked=e.choice ? '<div class="pr-task-working">'
+       +'<p>Uma escolha possível:</p><div class="pr-eq">'+wrap(e.choice)+'</div>'
+       +'<p>Derivando e primitivando:</p><div class="pr-eq">'+wrap(e.deriv)+'</div>'
+       +'<p>Aplicando a fórmula:</p><div class="pr-eq">'+wrap(e.work)+'</div>'
+       +'</div>' : '';
+    return '<article class="pr-task">'
+      +'<div class="pr-task-head">'+(index+1)+'.</div>'
+      +'<div class="pr-task-math">'+wrap('f(x)='+e.func)+'</div>'
+      +'<details><summary>Ver resolução</summary>'
+      +'<div class="pr-task-solution">'+worked
+      +'<div class="pr-task-answer">'+wrap('F(x)='+e.answer)+'</div>'
+      +'</div></details></article>';
+  }
+  list.innerHTML=exercises.map(card).join('');
+  root.addEventListener('toggle',event=>{
+    if(event.target.matches('.pr-task details')&&event.target.open){typeset(event.target);}
+  },true);
+  typeset(list);
+  window.addEventListener('load',()=>typeset(list));
+})();
+</script>
