@@ -110,6 +110,80 @@ Evitem incluir figuras apenas para ilustrar visualmente resultados que não são
 
 ---
 
+## Figuras, tabelas e equações
+
+As figuras, tabelas e equações devem estar devidamente integradas no texto do relatório. Não basta incluí-las: é importante explicar o que representam e de que forma contribuem para a resolução dos problemas.
+
+### Figuras e gráficos
+
+As figuras e os gráficos devem ser numerados e acompanhados de uma legenda, colocada **por baixo da figura**.
+
+A legenda deve ser suficientemente informativa para que o leitor compreenda o que está representado, sem precisar de procurar toda a explicação no texto.
+
+Por exemplo:
+
+*Figura 1 — Representação gráfica da função \(f\) no intervalo \([-2,3]\).*
+
+Os gráficos devem ainda apresentar, quando aplicável:
+
+- Identificação dos eixos e das variáveis representadas.
+- Unidades de medida, quando existam.
+- Legendas que permitam distinguir diferentes funções, curvas ou conjuntos de dados.
+- Escalas e intervalos adequados ao que se pretende analisar.
+
+**Todas as figuras devem ser referidas no texto** e acompanhadas de uma breve explicação ou interpretação.
+
+Por exemplo:
+
+> Como se observa na Figura 1, a função apresenta um mínimo local em \(x=1\), em concordância com os resultados obtidos através do estudo da primeira derivada.
+
+Evitem incluir gráficos sem explicar o que pretendem mostrar ou que conclusões podem ser retiradas deles.
+
+### Tabelas
+
+As tabelas também devem ser numeradas e ter um título ou legenda informativa, mas, ao contrário das figuras, **a legenda deve aparecer por cima da tabela**.
+
+Por exemplo:
+
+*Tabela 1 — Aproximações sucessivas obtidas pelo método de Newton-Raphson.*
+
+As colunas devem estar claramente identificadas e os valores numéricos devem ser apresentados com um número adequado de casas decimais.
+
+Tal como acontece com as figuras, as tabelas devem ser referidas e comentadas no texto.
+
+Não é necessário repetir no texto todos os valores apresentados. O importante é chamar a atenção para os resultados relevantes e explicar o que permitem concluir.
+
+### Equações e expressões matemáticas
+
+As expressões matemáticas devem ser apresentadas de forma legível, utilizando uma notação consistente ao longo do relatório.
+
+As equações mais importantes, sobretudo aquelas que serão referidas posteriormente, devem ser destacadas do texto e numeradas.
+
+Por exemplo, se for introduzida a fórmula de iteração de Newton-Raphson,
+
+$$
+x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)},
+$$
+
+poderão identificá-la como equação (1) e utilizar essa referência nas explicações seguintes.
+
+Não é necessário numerar todas as expressões matemáticas. A numeração deve facilitar a leitura e permitir fazer referências claras, sem sobrecarregar o relatório.
+
+As variáveis e os parâmetros utilizados devem ser definidos, e a notação deve manter-se consistente.
+
+**As equações devem fazer parte do raciocínio apresentado**, e não aparecer como elementos isolados. Sempre que necessário, expliquem de onde resultam, em que condições são válidas e como são utilizadas.
+
+### Algumas recomendações gerais
+
+- Evitem expressões como "no gráfico abaixo" ou "na tabela seguinte" quando podem utilizar referências mais precisas, como "na Figura 2" ou "na Tabela 1".
+- Mantenham uma numeração consistente para figuras, tabelas e equações.
+- Confirmem que todas as figuras e tabelas têm legendas adequadas e são referidas no texto.
+- Não incluam figuras, tabelas ou equações apenas para preencher o relatório. Cada elemento deve ter uma função na explicação dos problemas ou na apresentação dos resultados.
+
+Uma apresentação cuidada ajuda o leitor a acompanhar o raciocínio e a compreender os resultados. Faz também parte da aprendizagem de como comunicar informação matemática e científica.
+
+---
+
 ## Código, referências e anexos
 
 O relatório deve permitir identificar os procedimentos utilizados e, sempre que possível, reproduzir os resultados computacionais apresentados.
@@ -150,7 +224,7 @@ Reservem algum tempo para reler o relatório completo, de preferência depois de
 
 Verifiquem se os problemas foram efetivamente respondidos, se os resultados estão justificados e se a apresentação permite acompanhar o raciocínio.
 
-Confirmem também que as figuras são legíveis, que a notação matemática é consistente, que o código utilizado está identificado e que os anexos e referências estão completos.
+Confirmem também que as figuras e tabelas estão numeradas, têm legendas adequadas e são referidas no texto; que os gráficos são legíveis; que as equações estão corretamente apresentadas e que a notação matemática é consistente. Verifiquem ainda que o código utilizado está identificado e que os anexos e referências estão completos.
 
 Um bom relatório deve ser compreensível sem exigir que o leitor reconstrua os cálculos, adivinhe os métodos utilizados ou procure nos anexos explicações que deveriam estar no texto principal.
 
