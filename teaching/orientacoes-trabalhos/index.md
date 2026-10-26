@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Orientações para os trabalhos
