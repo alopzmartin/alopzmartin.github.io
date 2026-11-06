@@ -29,7 +29,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 - [Da Álgebra Linear à Visão por Computador]({{ '/teaching/visao-computador/' | relative_url }})
 - [Da Álgebra Linear à Análise de Dados]({{ '/teaching/analise-dados/' | relative_url }})
 - [Transformações lineares e mudança de base — Tutorial interativo]({{ '/teaching/transformacoes-e-bases/' | relative_url }})
-- 
+
 ---
 
 #### Tópicos de Matemática I
