@@ -7,6 +7,13 @@ permalink: /teaching/transformacoes-e-bases/
 /* Página autónoma: os estilos só se aplicam a este tutorial. */
 #alb-app{--alb-blue:#2563a5;--alb-green:#0f766e;--alb-orange:#b76e20;--alb-line:#dfe6ed;--alb-ink:#28343e;--alb-muted:#5d6d7a;color:var(--alb-ink);line-height:1.56;font-family:inherit}
 #alb-app *{box-sizing:border-box}
+/* Não utilizar elementos header/section/footer internos: o tema Minimal
+   posiciona-os globalmente e provoca sobreposições na página. */
+#alb-app .alb-header,#alb-app .alb-section,#alb-app .alb-footer{
+  position:static;float:none;clear:both;width:auto;max-width:none;min-height:0;
+  top:auto;left:auto;right:auto;bottom:auto;display:block
+}
+#alb-app{container-type:inline-size;max-width:100%}
 #alb-app [hidden]{display:none!important}
 #alb-app h1{font-size:29px;line-height:1.2;color:#24313b;margin:0 0 12px}
 #alb-app h2{font-size:21px;line-height:1.35;color:#24313b;margin:0 0 12px}
@@ -23,7 +30,7 @@ permalink: /teaching/transformacoes-e-bases/
 #alb-app .alb-muted{color:var(--alb-muted);font-size:13px}
 #alb-app .alb-ribbon{background:#f0f7fc;border-left:3px solid #5790b9;padding:11px 13px;border-radius:4px;font-size:13px;margin:13px 0}
 #alb-app .alb-formula{background:#f3f8fc;border:1px solid #e3edf5;padding:12px 9px;border-radius:8px;text-align:center;overflow-x:auto;margin:12px 0;font-size:15px}
-#alb-app .alb-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+#alb-app .alb-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));gap:11px}
 #alb-app label.alb-label{font-size:12px;font-weight:700;color:#445564;display:block;margin-bottom:5px}
 #alb-app select,#alb-app input[type=number]{border:1px solid #cbd8e4;background:#fff;color:#243645;border-radius:6px;padding:8px;width:100%;min-width:0}
 #alb-app input[type=number]{font-variant-numeric:tabular-nums}
@@ -70,20 +77,25 @@ permalink: /teaching/transformacoes-e-bases/
 #alb-app .alb-footer a{color:#267cb9}
 #alb-app .alb-3d-controls{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:8px 0 3px;font-size:12px;color:#566878}
 #alb-app .alb-3d-controls input{flex:1;accent-color:#267cb9;max-width:180px}
-@media(max-width:1050px){#alb-app .alb-controls{grid-template-columns:1fr 1fr}}
+@container (max-width:640px){
+  #alb-app .alb-plotgrid{grid-template-columns:1fr}
+}
+@container (max-width:445px){
+  #alb-app .alb-matrix-set,#alb-app .alb-info-grid{grid-template-columns:1fr}
+}
 @media(max-width:670px){#alb-app .alb-plotgrid{grid-template-columns:1fr}#alb-app .alb-controls{grid-template-columns:1fr}}
 @media(max-width:420px){#alb-app h1{font-size:24px}#alb-app .alb-panel{padding:12px}#alb-app .alb-matrix-set,#alb-app .alb-info-grid{grid-template-columns:1fr}#alb-app .alb-inputs{gap:9px}#alb-app .alb-inputfield{display:block}#alb-app .alb-inputfield input[type=range]{width:100%;display:block}#alb-app .alb-inputfield input[type=number]{width:100%}}
 </style>
 
 <div id="alb-app">
-  <header class="alb-header">
+  <div class="alb-header">
     <div class="alb-eyebrow">Fundamentos de Álgebra Linear · Explorar a matemática</div>
     <h1>Transformações lineares e mudança de base</h1>
     <p class="alb-lead">Escolha uma transformação linear e duas bases, uma para o <strong>domínio</strong> e outra para o <strong>contradomínio</strong>. Veja como a matriz da transformação muda e acompanhe a imagem de um vetor à sua escolha.</p>
-    <nav class="alb-nav" aria-label="Navegação no tutorial"><a href="#alb-explorar">Explorar</a><a href="#alb-matrizes">Matrizes e coordenadas</a><a href="#alb-entender">O que observar</a></nav>
-  </header>
+    <div class="alb-nav" aria-label="Navegação no tutorial"><a href="#alb-explorar">Explorar</a><a href="#alb-matrizes">Matrizes e coordenadas</a><a href="#alb-entender">O que observar</a></div>
+  </div>
 
-  <section class="alb-section" id="alb-explorar">
+  <div class="alb-section" id="alb-explorar">
     <h2>1. Escolher a transformação e as bases</h2>
     <p>Uma transformação linear <strong>não depende das bases</strong> escolhidas para a representar. A matriz que utilizamos nos cálculos, pelo contrário, depende de ambas.</p>
     <div class="alb-panel">
@@ -172,9 +184,9 @@ permalink: /teaching/transformacoes-e-bases/
       </div>
       <p class="alb-subnote" id="alb-interpretation" aria-live="polite"></p>
     </div>
-  </section>
+  </div>
 
-  <section class="alb-section" id="alb-matrizes">
+  <div class="alb-section" id="alb-matrizes">
     <h2>3. Matrizes da mesma transformação</h2>
     <p>Seja <strong>A</strong> a matriz de T nas bases canónicas. Seja <strong>B</strong> a matriz cujas colunas são os vetores da base do domínio, e <strong>C</strong> a matriz cujas colunas são os vetores da base do contradomínio, todos expressos nas bases canónicas.</p>
     <div class="alb-formula"><strong>M</strong> = [T]<sub>C←B</sub> = <strong>C</strong><sup>−1</sup> <strong>A</strong> <strong>B</strong></div>
@@ -196,9 +208,9 @@ permalink: /teaching/transformacoes-e-bases/
       </div>
       <p class="alb-subnote" id="alb-check" aria-live="polite"></p>
     </div>
-  </section>
+  </div>
 
-  <section class="alb-section" id="alb-entender">
+  <div class="alb-section" id="alb-entender">
     <h2>4. O que vale a pena observar</h2>
     <div class="alb-questions">
       <details><summary>Se alterar apenas a base do domínio, muda o vetor v?</summary><p>Se introduziu v na base canónica E, não: o vetor geométrico permanece fixo. Mudam as coordenadas v<sub>B</sub> e, em geral, a matriz M. Se introduziu as coordenadas na base B, mantendo os mesmos números ao mudar B, estará a escolher outro vetor geométrico.</p></details>
@@ -206,8 +218,8 @@ permalink: /teaching/transformacoes-e-bases/
       <details><summary>Uma transformação ℝ² → ℝ³ pode ter uma matriz 3×2?</summary><p>Sim. Há duas colunas, uma por cada vetor da base do domínio, e três linhas, uma por cada coordenada na base do contradomínio. Não é necessário que o domínio e o contradomínio tenham a mesma dimensão.</p></details>
       <details><summary>Por que razão a matriz tem como colunas as imagens dos vetores da base?</summary><p>Se v = αb₁ + βb₂, a linearidade dá T(v) = αT(b₁) + βT(b₂). Ao escrever esta igualdade nas coordenadas da base C, multiplicamos precisamente a matriz com as colunas [T(b₁)]<sub>C</sub> e [T(b₂)]<sub>C</sub> pelo vetor (α, β).</p></details>
     </div>
-  </section>
-  <footer class="alb-footer"><a href="{{ '/teaching/' | relative_url }}">← Voltar à página de Ensino</a></footer>
+  </div>
+  <div class="alb-footer"><a href="{{ '/teaching/' | relative_url }}">← Voltar à página de Ensino</a></div>
 </div>
 
 <script>
