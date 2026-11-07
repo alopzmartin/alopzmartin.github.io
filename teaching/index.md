@@ -25,7 +25,7 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 - [Bases, dimensão e funções lineares]({{ 'teaching/slides/fal-tp11-tp12.pdf' | relative_url }})
 
 **Para entender melhor**
-- [Transformações lineares — O exemplo de um robô]({{ '/teaching/robot-e-bases/' | relative_url }})
+- [Transformações lineares — O exemplo de um robô]({{ '/teaching/transformacoes-robot-exemplo/' | relative_url }})
 
 **Aplicações**
 
