@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Transformações lineares — o caso de um robô
-permalink: /teaching/robot-e-bases/
+permalink: /teaching/transformacoes-robot-exemplo/
 ---
 
 # Uma transformação linear, diferentes matrizes
