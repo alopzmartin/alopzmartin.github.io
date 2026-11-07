@@ -266,7 +266,7 @@ $$
 
 O número de **colunas** é determinado pela dimensão do domínio; o número de **linhas**, pela dimensão do contradomínio. Não é necessário aplicar qualquer regra de multiplicação de matrizes para compreender esta construção.
 
-[← Voltar à página de Ensino]({{ '/teaching/' | relative_url }})
+[← Voltar à página de Docência]({{ '/teaching/' | relative_url }})
 
 <script>
 (function(){
