@@ -38,7 +38,7 @@ $$
 #mv-demo .mv-control input[type=range]{width:100%;accent-color:var(--mv-blue);margin:4px 0}
 #mv-demo .mv-plots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:13px 0}
 #mv-demo .mv-plot{min-width:0;border:1px solid #e2e9f0;border-radius:9px;padding:10px;background:#fcfdff}
-#mv-demo .mv-plot strong{font-size:13px;color:#375367;display:block;margin-bottom:5px}
+#mv-demo .mv-plot strong{font-size:13px;line-height:1.35;color:#375367;display:block;margin-bottom:5px}
 #mv-demo .mv-plot svg{display:block;width:100%;height:auto;aspect-ratio:350/250;border:1px solid #e9eef3;border-radius:5px;background:#fff}
 #mv-demo .mv-plot small{display:block;color:#647789;margin-top:7px;font-size:11px;line-height:1.4}
 #mv-demo .mv-outputs{background:#f3f8fb;border-left:4px solid #267cb9;padding:12px;border-radius:5px;font-variant-numeric:tabular-nums;display:grid;gap:7px;font-size:13px}
@@ -82,8 +82,8 @@ $$
       <span><i style="background:#bd7222"></i>Vetor escolhido e respetiva imagem</span>
     </div>
     <div class="mv-plots">
-      <div class="mv-plot"><strong>Domínio — \(\mathbb R^2\)</strong><svg id="mv-domain" viewBox="0 0 350 250" role="img" aria-label="Vetor escolhido, no domínio, na base canónica"></svg><small>O vetor v é expresso nas coordenadas canónicas (x, y).</small></div>
-      <div class="mv-plot"><strong>Contradomínio — \(\mathbb R^2\)</strong><svg id="mv-codomain" viewBox="0 0 350 250" role="img" aria-label="Imagem de v, no contradomínio, na base canónica"></svg><small>A imagem T(v) é expressa na base canónica do contradomínio.</small></div>
+      <div class="mv-plot"><strong>Domínio — ℝ²</strong><svg id="mv-domain" viewBox="0 0 350 250" role="img" aria-label="Vetor escolhido, no domínio, na base canónica"></svg><small>O vetor v é expresso nas coordenadas canónicas (x, y).</small></div>
+      <div class="mv-plot"><strong>Contradomínio — ℝ²</strong><svg id="mv-codomain" viewBox="0 0 350 250" role="img" aria-label="Imagem de v, no contradomínio, na base canónica"></svg><small>A imagem T(v) é expressa na base canónica do contradomínio.</small></div>
     </div>
     <div class="mv-outputs" aria-live="polite">
       <div class="mv-row"><span>Vetor selecionado</span><b id="mv-vtext">v = (2, 1)</b></div>
@@ -92,7 +92,7 @@ $$
     </div>
     <details>
       <summary>Compreender a relação entre as colunas e as imagens dos vetores da base</summary>
-      <p>A primeira coluna de A é \(T_A(e_1)=(1,0)\); a segunda é \(T_A(e_2)=(1,1)\). Como \(v=xe_1+ye_2\) e T é linear, temos \(T_A(v)=xT_A(e_1)+yT_A(e_2)\). Na base canónica, as colunas da matriz são, portanto, as imagens dos vetores da base canónica.</p>
+      <p>A primeira coluna de A é T<sub>A</sub>(e₁) = (1, 0); a segunda é T<sub>A</sub>(e₂) = (1, 1). Como v = xe₁ + ye₂ e T é linear, temos T<sub>A</sub>(v) = xT<sub>A</sub>(e₁) + yT<sub>A</sub>(e₂). Na base canónica, as colunas da matriz são, portanto, as imagens dos vetores da base canónica.</p>
     </details>
   </div>
 </div>
@@ -266,7 +266,7 @@ $$
 
 O número de **colunas** é determinado pela dimensão do domínio; o número de **linhas**, pela dimensão do contradomínio. Não é necessário aplicar qualquer regra de multiplicação de matrizes para compreender esta construção.
 
-[← Voltar à página de Docência]({{ '/teaching/' | relative_url }})
+[← Voltar à página de Ensino]({{ '/teaching/' | relative_url }})
 
 <script>
 (function(){
