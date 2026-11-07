@@ -6,7 +6,118 @@ permalink: /teaching/robot-e-bases/
 
 # Uma transformação linear, diferentes matrizes
 
-## Um robô num armazém
+## 1. Da matriz à transformação linear
+
+Comecemos por utilizar a **base canónica** tanto no domínio como no contradomínio. Neste caso, cada matriz com duas linhas e duas colunas define uma transformação linear de $\mathbb R^2$ em $\mathbb R^2$: a cada vetor $v$ associa-se o vetor $Av$.
+
+Considere-se, por exemplo,
+
+$$
+A=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+\qquad T_A:\mathbb R^2\longrightarrow\mathbb R^2,\quad T_A(v)=Av.
+$$
+
+Para $v=(x,y)$, obtemos
+
+$$
+T_A(x,y)=\begin{pmatrix}1&1\\0&1\end{pmatrix}
+\begin{pmatrix}x\\y\end{pmatrix}
+=\begin{pmatrix}x+y\\y\end{pmatrix}.
+$$
+
+**Observe o efeito da transformação.** Altere as coordenadas do vetor no domínio e acompanhe a sua imagem no contradomínio. As duas grelhas correspondem, nesta primeira etapa, às bases canónicas.
+
+<style>
+/* Componente introdutória: estilos restritos a #mv-demo, sem interferir com o tema Minimal. */
+#mv-demo{--mv-blue:#267cb9;--mv-green:#18877c;--mv-orange:#bd7222;--mv-ink:#273e50;--mv-border:#dce6ee;color:var(--mv-ink);max-width:100%;margin:18px 0 24px;font-size:14px;line-height:1.5;container-type:inline-size}
+#mv-demo *{box-sizing:border-box}
+#mv-demo .mv-box{background:#fff;border:1px solid var(--mv-border);border-radius:12px;padding:16px;min-width:0}
+#mv-demo .mv-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 0 13px}
+#mv-demo .mv-control{min-width:0}
+#mv-demo .mv-control label{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#415b70;gap:8px;margin:0 0 5px}
+#mv-demo .mv-control input[type=range]{width:100%;accent-color:var(--mv-blue);margin:4px 0}
+#mv-demo .mv-plots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:13px 0}
+#mv-demo .mv-plot{min-width:0;border:1px solid #e2e9f0;border-radius:9px;padding:10px;background:#fcfdff}
+#mv-demo .mv-plot strong{font-size:13px;color:#375367;display:block;margin-bottom:5px}
+#mv-demo .mv-plot svg{display:block;width:100%;height:auto;aspect-ratio:350/250;border:1px solid #e9eef3;border-radius:5px;background:#fff}
+#mv-demo .mv-plot small{display:block;color:#647789;margin-top:7px;font-size:11px;line-height:1.4}
+#mv-demo .mv-outputs{background:#f3f8fb;border-left:4px solid #267cb9;padding:12px;border-radius:5px;font-variant-numeric:tabular-nums;display:grid;gap:7px;font-size:13px}
+#mv-demo .mv-row{display:flex;justify-content:space-between;align-items:start;gap:12px;flex-wrap:wrap}
+#mv-demo .mv-row b{font-weight:700;color:#213f57}
+#mv-demo .mv-options{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0}
+#mv-demo .mv-options label{display:flex;gap:6px;align-items:center;cursor:pointer;font-size:12px;color:#435d6d}
+#mv-demo .mv-options input{accent-color:var(--mv-blue);margin:0}
+#mv-demo button{border:1px solid #c7d9e6;color:#176eaa;background:#fff;border-radius:7px;padding:6px 10px;cursor:pointer;font-size:12px}
+#mv-demo input:focus-visible,#mv-demo button:focus-visible{outline:3px solid #267cb9;outline-offset:2px}
+#mv-demo .mv-legend{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0;color:#5e7182;font-size:11px}
+#mv-demo .mv-legend span{display:inline-flex;gap:5px;align-items:center}
+#mv-demo .mv-legend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+#mv-demo details{border:1px solid #e0e9f0;border-radius:7px;padding:9px 11px;background:#fbfdfe;margin-top:12px;font-size:12px}
+#mv-demo summary{cursor:pointer;color:#216e9e;font-weight:700}
+#mv-demo details p{margin:8px 0 0}
+@container (max-width:520px){#mv-demo .mv-plots{grid-template-columns:1fr}}
+@container (max-width:340px){#mv-demo .mv-controls{grid-template-columns:1fr}#mv-demo .mv-box{padding:11px}}
+@media(max-width:680px){#mv-demo .mv-plots{grid-template-columns:1fr}}
+</style>
+
+<div id="mv-demo">
+  <div class="mv-box">
+    <div class="mv-controls">
+      <div class="mv-control">
+        <label for="mv-x">Primeira coordenada, x <output id="mv-xvalue" for="mv-x">2</output></label>
+        <input id="mv-x" type="range" min="-2.5" max="2.5" step="0.5" value="2">
+      </div>
+      <div class="mv-control">
+        <label for="mv-y">Segunda coordenada, y <output id="mv-yvalue" for="mv-y">1</output></label>
+        <input id="mv-y" type="range" min="-2.5" max="2.5" step="0.5" value="1">
+      </div>
+    </div>
+    <div class="mv-options">
+      <label><input type="checkbox" id="mv-showbasis" checked> Mostrar as imagens dos vetores da base canónica</label>
+      <button type="button" id="mv-reset">Repor o exemplo inicial</button>
+    </div>
+    <div class="mv-legend">
+      <span><i style="background:#267cb9"></i>Primeiro vetor da base</span>
+      <span><i style="background:#18877c"></i>Segundo vetor da base</span>
+      <span><i style="background:#bd7222"></i>Vetor escolhido e respetiva imagem</span>
+    </div>
+    <div class="mv-plots">
+      <div class="mv-plot"><strong>Domínio — \(\mathbb R^2\)</strong><svg id="mv-domain" viewBox="0 0 350 250" role="img" aria-label="Vetor escolhido, no domínio, na base canónica"></svg><small>O vetor v é expresso nas coordenadas canónicas (x, y).</small></div>
+      <div class="mv-plot"><strong>Contradomínio — \(\mathbb R^2\)</strong><svg id="mv-codomain" viewBox="0 0 350 250" role="img" aria-label="Imagem de v, no contradomínio, na base canónica"></svg><small>A imagem T(v) é expressa na base canónica do contradomínio.</small></div>
+    </div>
+    <div class="mv-outputs" aria-live="polite">
+      <div class="mv-row"><span>Vetor selecionado</span><b id="mv-vtext">v = (2, 1)</b></div>
+      <div class="mv-row"><span>Imagem pela transformação</span><b id="mv-tvtext">T(v) = (3, 1)</b></div>
+      <div class="mv-row"><span>Decomposição da imagem</span><b id="mv-combtext">2 T(e₁) + 1 T(e₂) = (3, 1)</b></div>
+    </div>
+    <details>
+      <summary>Compreender a relação entre as colunas e as imagens dos vetores da base</summary>
+      <p>A primeira coluna de A é \(T_A(e_1)=(1,0)\); a segunda é \(T_A(e_2)=(1,1)\). Como \(v=xe_1+ye_2\) e T é linear, temos \(T_A(v)=xT_A(e_1)+yT_A(e_2)\). Na base canónica, as colunas da matriz são, portanto, as imagens dos vetores da base canónica.</p>
+    </details>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const root=document.getElementById('mv-demo');if(!root)return;
+const NS='http://www.w3.org/2000/svg',P=v=>[175+v[0]*29,125-v[1]*29];
+const palette={blue:'#267cb9',green:'#18877c',orange:'#bd7222'};
+const by=id=>root.querySelector('#'+id);
+function el(parent,tag,attributes,text){let a=document.createElementNS(NS,tag);Object.entries(attributes||{}).forEach(([k,v])=>a.setAttribute(k,v));if(text!==undefined)a.textContent=text;parent.appendChild(a);return a}
+function segment(parent,a,b,color,width=1,opacity=1){const p=P(a),q=P(b);el(parent,'line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:color,'stroke-width':width,opacity})}
+function arrow(svg,vector,color,label,width=3){const a=P([0,0]),b=P(vector),dx=b[0]-a[0],dy=b[1]-a[1],norm=Math.hypot(dx,dy);if(norm<1){el(svg,'circle',{cx:a[0],cy:a[1],r:5,fill:color});return};let ux=dx/norm,uy=dy/norm;segment(svg,[0,0],vector,color,width);el(svg,'polygon',{points:[[b[0],b[1]],[b[0]-11*ux-5*uy,b[1]-11*uy+5*ux],[b[0]-11*ux+5*uy,b[1]-11*uy-5*ux]].map(p=>p.join(',')).join(' '),fill:color});let tx=Math.max(9,Math.min(313,b[0]+7)),ty=Math.max(17,Math.min(239,b[1]-7));el(svg,'text',{x:tx,y:ty,fill:color,'font-size':13,'font-weight':700,'paint-order':'stroke',stroke:'#fff','stroke-width':3},label)}
+function draw(id,v,image){let svg=by(id);svg.textContent='';for(let k=-6;k<=6;k++){segment(svg,[k,-5],[k,5],'#dfe7ed',1,.8);segment(svg,[-7,k],[7,k],'#dfe7ed',1,.8)}segment(svg,[-7,0],[7,0],'#8496a4',1.2,.75);segment(svg,[0,-5],[0,5],'#8496a4',1.2,.75);el(svg,'text',{x:334,y:119,'font-size':11,fill:'#778894'},'x');el(svg,'text',{x:181,y:11,'font-size':11,fill:'#778894'},'y');let u=image?[1,0]:[1,0],w=image?[1,1]:[0,1];if(by('mv-showbasis').checked){arrow(svg,u,palette.blue,image?'T(e₁)':'e₁',2.2);arrow(svg,w,palette.green,image?'T(e₂)':'e₂',2.2)}arrow(svg,v,palette.orange,image?'T(v)':'v',3.6);el(svg,'circle',{cx:175,cy:125,r:3.1,fill:'#506778'})}
+function f(n){return new Intl.NumberFormat('pt-PT',{maximumFractionDigits:1}).format(n)}
+function render(){const x=+by('mv-x').value,y=+by('mv-y').value;by('mv-xvalue').textContent=f(x);by('mv-yvalue').textContent=f(y);by('mv-vtext').textContent='v = ('+f(x)+', '+f(y)+')';by('mv-tvtext').textContent='T(v) = ('+f(x+y)+', '+f(y)+')';by('mv-combtext').textContent=f(x)+' T(e₁) + '+f(y)+' T(e₂) = ('+f(x+y)+', '+f(y)+')';draw('mv-domain',[x,y],false);draw('mv-codomain',[x+y,y],true)}
+['mv-x','mv-y','mv-showbasis'].forEach(id=>by(id).addEventListener('input',render));by('mv-reset').addEventListener('click',()=>{by('mv-x').value=2;by('mv-y').value=1;by('mv-showbasis').checked=true;render()});render();
+})();
+</script>
+
+**O que se deve reter.** Ao utilizar as bases canónicas nos dois espaços, a matriz permite determinar diretamente a imagem de um vetor. Além disso, **cada coluna indica a imagem do correspondente vetor da base canónica**. A seguir, veremos o que acontece quando se escolhem outras bases.
+
+
+## 2. Um robô num armazém
 
 Considere-se um robô que se desloca no piso de um armazém. O robô descreve os seus deslocamentos através de dois eixos próprios: um na direção de avanço e outro na direção lateral. O armazém dispõe de outro sistema de coordenadas, com eixos fixos. Admita-se que os eixos do robô estão rodados **30°** no sentido anti-horário relativamente aos eixos do armazém.
 
@@ -21,7 +132,7 @@ Neste exemplo, consideram-se apenas deslocamentos (e não posições absolutas),
 
 **Objetivo.** Compreender como a escolha das bases no domínio e no contradomínio determina as **colunas da matriz que representa a mesma transformação linear**.
 
-## O teorema
+## 3. O teorema
 
 Se $B=(b_1,b_2)$ é uma base do domínio e $C=(c_1,c_2)$ uma base do contradomínio, então
 
@@ -138,7 +249,7 @@ Para obter uma coluna, **aplica-se $T$ a um vetor da base do domínio** e **escr
   </div>
 </div>
 
-## Extensão: um robô numa rampa
+## 4. Extensão: um robô numa rampa
 
 O mesmo raciocínio permite compreender uma transformação de $\mathbb R^2$ em $\mathbb R^3$. Se um robô se desloca numa rampa inclinada de $30^\circ$, podemos usar duas coordenadas para descrever deslocamentos **ao longo da rampa** e três coordenadas para os representar no espaço:
 
@@ -155,7 +266,7 @@ $$
 
 O número de **colunas** é determinado pela dimensão do domínio; o número de **linhas**, pela dimensão do contradomínio. Não é necessário aplicar qualquer regra de multiplicação de matrizes para compreender esta construção.
 
-[← Voltar à página de Docência]({{ '/teaching/' | relative_url }})
+[← Voltar à página de Ensino]({{ '/teaching/' | relative_url }})
 
 <script>
 (function(){
