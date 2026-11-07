@@ -24,11 +24,13 @@ Nesta página disponibilizo alguns slides e materiais complementares que poderã
 - [Subespaços $\mathbb{R}^n$]({{ '/teaching/slides/fal-tp9-tp10.pdf' | relative_url }})
 - [Bases, dimensão e funções lineares]({{ 'teaching/slides/fal-tp11-tp12.pdf' | relative_url }})
 
+**Para entender melhor**
+- [Transformações lineares — O exemplo de um robô]({{ '/teaching/robot-e-bases/' | relative_url }})
+
 **Aplicações**
 
 - [Da Álgebra Linear à Visão por Computador]({{ '/teaching/visao-computador/' | relative_url }})
 - [Da Álgebra Linear à Análise de Dados]({{ '/teaching/analise-dados/' | relative_url }})
-- [Transformações lineares e mudança de base — Tutorial interativo]({{ '/teaching/transformacoes-e-bases/' | relative_url }})
 
 ---
 
